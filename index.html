@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reydi Fashion Boutique | Catálogo Exclusivo</title>
+    <style>
+        /* RESET & CSS VARIABLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        :root {
+            --bg-dark: #0a0b0e;
+            --card-bg: rgba(18, 20, 26, 0.85);
+            --border-gold: rgba(212, 175, 55, 0.25);
+            --champagne: #d4af37;
+            --champagne-light: #f3e5ab;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --bg-input: #12141a;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.5;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* GLASSMORPHISM & BRUTALISM DARK */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-gold);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.15);
+        }
+
+        /* MARQUEE ANIMATION */
+        .marquee-wrapper {
+            background: linear-gradient(90deg, #12141a, #1a1d26, #12141a);
+            border-bottom: 1px solid var(--border-gold);
+            color: var(--champagne);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 8px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            z-index: 30;
+        }
+
+        .marquee-content {
+            display: inline-flex;
+            gap: 30px;
+            animation: marquee 22s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* HEADER & NAV */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: rgba(10, 11, 14, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .brand-logo {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-badge {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--border-gold);
+            color: var(--champagne);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 380px;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: var(--bg-input);
+            border: 1px solid #272a35;
+            color: var(--text-main);
+            padding: 8px 14px 8px 36px;
+            border-radius: 20px;
+            font-size: 13px;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--champagne);
+        }
+
+        .search-box svg {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            fill: var(--text-muted);
+        }
+
+        .btn-cart {
+            background: #12141a;
+            border: 1px solid var(--border-gold);
+            color: #fff;
+            padding: 7px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-cart:hover {
+            border-color: var(--champagne);
+            background: #1a1d26;
+        }
+
+        .cart-badge {
+            background: var(--champagne);
+            color: #000;
+            font-size: 10px;
+            font-weight: bold;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 35px 20px 20px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-tag {
+            color: var(--champagne);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .hero h1 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 32px;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .hero h1 span {
+            color: var(--champagne);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 13px;
+            max-width: 540px;
+            margin: 0 auto 25px auto;
+        }
+
+        /* CATEGORIES (SCROLL HORIZONTAL) */
+        .categories-scroll {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 5px 0 12px 0;
+            justify-content: flex-start;
+            scrollbar-width: none;
+        }
+
+        .categories-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-btn {
+            white-space: nowrap;
+            background: #12141a;
+            border: 1px solid #272a35;
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cat-btn.active {
+            background: var(--champagne);
+            color: #000;
+            border-color: var(--champagne);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        /* PRODUCT GRID */
+        .catalog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .catalog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .catalog-header h2 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 22px;
+            color: #fff;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .product-img-wrapper {
+            position: relative;
+            aspect-ratio: 1/1;
+            background: #12141a;
+            overflow: hidden;
+        }
+
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.06);
+        }
+
+        .category-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(10, 11, 14, 0.85);
+            color: var(--champagne);
+            border: 1px solid var(--border-gold);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+
+        .quick-view-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover .quick-view-overlay {
+            opacity: 1;
+        }
+
+        .btn-quick-view {
+            background: var(--champagne);
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .btn-quick-view {
+            transform: translateY(0);
+        }
+
+        .product-info {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .product-title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 15px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .product-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 5px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--champagne);
+        }
+
+        .btn-add {
+            background: #1a1d26;
+            border: 1px solid #272a35;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-add:hover {
+            background: var(--champagne);
+            color: #000;
+            border-color: var(--champagne);
+        }
+
+        /* FAQ ACCORDION */
+        .faq-section {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-btn {
+            width: 100%;
+            padding: 14px 18px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-content {
+            padding: 0 18px 14px 18px;
+            font-size: 12px;
+            color: var(--text-muted);
+            display: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 5px;
+            padding-top: 10px;
+        }
+
+        /* MODALS */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 50;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: #12141a;
+            border: 1px solid var(--border-gold);
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            padding: 24px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #1a1d26;
+            border: 1px solid #272a35;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .variant-group {
+            margin-bottom: 15px;
+        }
+
+        .variant-group label {
+            display: block;
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .variant-options {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .opt-btn {
+            background: #12141a;
+            border: 1px solid #272a35;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        .opt-btn.selected {
+            background: var(--champagne);
+            color: #000;
+            border-color: var(--champagne);
+            font-weight: bold;
+        }
+
+        /* TOAST NOTIFICATION */
+        .toast {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            z-index: 60;
+            background: #12141a;
+            border: 1px solid var(--champagne);
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        /* FLOATING ACTION BUTTONS */
+        .floating-btns {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 40;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .fab {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+            transition: transform 0.3s;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+        }
+
+        .fab-ws { background: #25D366; }
+        .fab-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            .search-box-desktop { display: none; }
+            .hero h1 { font-size: 24px; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .product-info { padding: 10px; }
+            .product-title { font-size: 13px; }
+            .product-price { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. MARQUEE ANUNCIOS -->
+    <div class="marquee-wrapper">
+        <div class="marquee-content">
+            <span>✨ ENVIOS A NIVEL NACIONAL</span>
+            <span>🚚 ENTREGAS INMEDIATAS EN BARINAS</span>
+            <span>💳 PAGO MÓVIL Y DIVISAS</span>
+            <span>💎 ALTA COSTURA & TENDENCIAS COREANAS</span>
+            <span>✨ ENVIOS A NIVEL NACIONAL</span>
+            <span>🚚 ENTREGAS INMEDIATAS EN BARINAS</span>
+            <span>💳 PAGO MÓVIL Y DIVISAS</span>
+            <span>💎 ALTA COSTURA & TENDENCIAS COREANAS</span>
+        </div>
+    </div>
+
+    <!-- 2. NOTIFICACIÓN TOAST -->
+    <div id="toast" class="toast">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#d4af37"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        <div>
+            <div style="font-size: 10px; color: var(--champagne); font-weight: bold; text-transform: uppercase;">Reydi Fashion</div>
+            <div id="toast-msg" style="font-size: 12px;">¡Producto añadido a la bolsa!</div>
+        </div>
+    </div>
+
+    <!-- 3. HEADER NAV -->
+    <header>
+        <a href="#" class="brand-logo">
+            REYDI<span style="color:var(--champagne)">.</span>
+            <span class="brand-badge">Boutique</span>
+        </a>
+
+        <div class="search-box search-box-desktop">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <input type="text" id="search-input" placeholder="Buscar prendas, chalecos, polos..." oninput="handleSearch(this.value)">
+        </div>
+
+        <button class="btn-cart" onclick="toggleCartModal()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--champagne)"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.1 0 2 .89 2 2h-4c0-1.11.89-2 2-2zm6 16H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/></svg>
+            <span>Bolsa</span>
+            <span id="cart-counter" class="cart-badge">0</span>
+        </button>
+    </header>
+
+    <!-- 4. HERO & FILTROS -->
+    <section class="hero">
+        <span class="hero-tag">Colección Exclusiva 2026</span>
+        <h1>Elegancia Atemporal en <span>Soft Brutalism</span></h1>
+        <p>Descubre nuestra selección curada de alta costura femenina con texturas de punto finas, siluetas sofisticadas y detalles de lujo coreano.</p>
+
+        <!-- Scroll de Categorías -->
+        <div class="categories-scroll">
+            <button class="cat-btn active" onclick="filterCategory('todos', this)">✨ Todos</button>
+            <button class="cat-btn" onclick="filterCategory('Chalecos', this)">Chalecos Tejidos</button>
+            <button class="cat-btn" onclick="filterCategory('Franelas', this)">Franelas Oversize</button>
+            <button class="cat-btn" onclick="filterCategory('Apolo', this)">Camisas Apolo</button>
+            <button class="cat-btn" onclick="filterCategory('Cardigans', this)">Cárdigans</button>
+            <button class="cat-btn" onclick="filterCategory('Camisas Tejidas', this)">Camisas Tejidas</button>
+        </div>
+    </section>
+
+    <!-- 5. CATÁLOGO -->
+    <main class="catalog-container">
+        <div class="catalog-header">
+            <h2 id="catalog-title">Catálogo Destacado</h2>
+            <span style="font-size: 11px; color: var(--champagne); border: 1px solid var(--border-gold); padding: 4px 10px; border-radius: 8px;">
+                <span id="product-count">8</span> disponibles
+            </span>
+        </div>
+
+        <div id="products-grid" class="products-grid">
+            <!-- Inyectado dinámicamente -->
+        </div>
+    </main>
+
+    <!-- 6. FAQ ACORDEÓN -->
+    <section class="faq-section">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <span style="color: var(--champagne); font-size: 10px; text-transform: uppercase; letter-spacing: 2px;">Resolvemos tus dudas</span>
+            <h2 style="font-family: Georgia, serif; font-size: 22px; color: #fff; margin-top: 4px;">Preguntas Frecuentes</h2>
+        </div>
+
+        <div class="glass-card faq-item">
+            <button class="faq-btn" onclick="toggleFaq(this)">
+                <span>¿Cuáles son los métodos de pago disponibles?</span>
+                <span>▼</span>
+            </button>
+            <div class="faq-content">
+                Aceptamos Pago Móvil (C.I 32.0410.68 | 0412-6747350), efectivo en divisas (USD/EUR) para entregas personales en Barinas, y transferencias Zelle.
+            </div>
+        </div>
+
+        <div class="glass-card faq-item">
+            <button class="faq-btn" onclick="toggleFaq(this)">
+                <span>¿Cómo funcionan los envíos y entregas?</span>
+                <span>▼</span>
+            </button>
+            <div class="faq-content">
+                Realizamos entregas inmediatas tipo Delivery en Barinas. Para envíos nacionales trabajamos con MRW, Zoom y Tealca.
+            </div>
+        </div>
+
+        <div class="glass-card faq-item">
+            <button class="faq-btn" onclick="toggleFaq(this)">
+                <span>¿Cómo elijo la talla o color correcto?</span>
+                <span>▼</span>
+            </button>
+            <div class="faq-content">
+                Cada prenda cuenta con un selector interactivo en la 'Vista Rápida' donde puedes seleccionar tu talla y variante preferida antes de añadir a tu pedido.
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. BOTONES FLOTANTES -->
+    <div class="floating-btns">
+        <a href="https://wa.me/584126747350?text=Hola%20Reydi%20Fashion,%20deseo%20asesoría" target="_blank" class="fab fab-ws" title="WhatsApp">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="fab fab-ig" title="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+    </div>
+
+    <!-- 8. MODAL VISTA RÁPIDA -->
+    <div id="quick-view-modal" class="modal-backdrop">
+        <div class="modal-card">
+            <button class="close-btn" onclick="closeQuickView()">✕</button>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; align-items: center;">
+                <div style="aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; background: #000;">
+                    <img id="qv-img" src="" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div>
+                    <span id="qv-category" style="font-size: 10px; color: var(--champagne); font-weight: bold; text-transform: uppercase;"></span>
+                    <h3 id="qv-title" style="font-family: Georgia, serif; font-size: 20px; color: #fff; margin: 4px 0 8px 0;"></h3>
+                    <div id="qv-price" style="font-size: 18px; font-weight: bold; color: var(--champagne); margin-bottom: 12px;"></div>
+                    <p id="qv-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 15px;"></p>
+
+                    <div class="variant-group">
+                        <label>Selecciona Talla:</label>
+                        <div id="qv-sizes" class="variant-options"></div>
+                    </div>
+
+                    <div class="variant-group" style="margin-bottom: 20px;">
+                        <label>Selecciona Tono / Color:</label>
+                        <div id="qv-colors" class="variant-options"></div>
+                    </div>
+
+                    <button id="qv-add-btn" class="btn-add" style="width: 100%; padding: 12px; background: var(--champagne); color: #000; font-weight: bold; border: none; border-radius: 10px;">
+                        Añadir a la Bolsa
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. MODAL CARRITO -->
+    <div id="cart-modal" class="modal-backdrop" style="justify-content: flex-end; padding: 0;">
+        <div class="modal-card" style="border-radius: 20px 0 0 20px; height: 100vh; max-height: 100vh; max-width: 420px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 15px; margin-bottom: 15px;">
+                    <h3 style="font-family: Georgia, serif; color: #fff; font-size: 18px;">Tu Bolsa de Compras</h3>
+                    <button class="close-btn" style="position: static;" onclick="toggleCartModal()">✕</button>
+                </div>
+
+                <div id="cart-items" style="display: flex; flex-direction: column; gap: 12px; max-height: 45vh; overflow-y: auto;">
+                    <!-- Ítems dinámicos -->
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 15px; display: flex; flex-direction: column; gap: 12px;">
+                <div>
+                    <label style="font-size: 10px; color: var(--text-muted); text-transform: uppercase;">Método de Envío:</label>
+                    <select id="shipping-method" onchange="updateCartTotals()" style="width: 100%; background: #12141a; border: 1px solid #272a35; color: #fff; padding: 8px; border-radius: 8px; font-size: 11px; margin-top: 4px;">
+                        <option value="delivery">Delivery Inmediato en Barinas ($3.00)</option>
+                        <option value="mrw">MRW - Envío Nacional ($5.00)</option>
+                        <option value="zoom">ZOOM - Envío Nacional ($6.00)</option>
+                        <option value="tealca">TEALCA - Envío Nacional ($6.00)</option>
+                        <option value="pickup">Retiro en Tienda Física (Gratis)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label style="font-size: 10px; color: var(--text-muted); text-transform: uppercase;">Método de Pago:</label>
+                    <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px; font-size: 11px;">
+                        <label style="display: flex; align-items: center; gap: 8px; background: #12141a; padding: 6px 10px; border-radius: 8px; border: 1px solid #272a35;">
+                            <input type="radio" name="payment_method" value="Pago Móvil (C.I 32.0410.68 | 0412-6747350)" checked>
+                            <span>Pago Móvil (C.I 32.0410.68 | 0412-6747350)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; background: #12141a; padding: 6px 10px; border-radius: 8px; border: 1px solid #272a35;">
+                            <input type="radio" name="payment_method" value="Efectivo / Divisas en entrega">
+                            <span>Efectivo / Divisas en entrega</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; background: #12141a; padding: 6px 10px; border-radius: 8px; border: 1px solid #272a35;">
+                            <input type="radio" name="payment_method" value="Zelle / Transferencia">
+                            <span>Zelle / Transferencia</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div style="font-size: 12px; display: flex; justify-content: space-between; color: var(--text-muted);">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">$0.00</span>
+                </div>
+                <div style="font-size: 12px; display: flex; justify-content: space-between; color: var(--text-muted);">
+                    <span>Envío:</span>
+                    <span id="cart-shipping-cost">$3.00</span>
+                </div>
+                <div style="font-size: 15px; font-weight: bold; display: flex; justify-content: space-between; color: #fff; border-top: 1px solid #272a35; padding-top: 8px;">
+                    <span>Total:</span>
+                    <span id="cart-total" style="color: var(--champagne);">$0.00</span>
+                </div>
+
+                <button onclick="checkoutWhatsApp()" style="width: 100%; padding: 12px; background: #25D366; color: #fff; font-weight: bold; border: none; border-radius: 10px; cursor: pointer; font-size: 13px;">
+                    Enviar Pedido por WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT TÉCNICO -->
+    <script>
+        const products = [
+            { id: 1, name: "Camisa Tejida Gris con Rayas", category: "Camisas Tejidas", price: 28.00, image: "img/camisa-tejida-gris.jpg", description: "Elegante camisa tejida en tonos gris y celeste con diseño de rayas sutiles.", sizes: ["Única", "S", "M"], colors: ["Gris / Celeste", "Beige"] },
+            { id: 2, name: "Conjunto Camisa Apolo & Chaleco", category: "Apolo", price: 35.00, image: "img/camisas-apolo-tejidas.jpg", description: "Conjunto exclusivo de camisa polo tejida en tono nude con botones nacarados.", sizes: ["Única", "S", "M", "L"], colors: ["Nude / Beige", "Blanco"] },
+            { id: 3, name: "Franela Oversize 'Dalmatian Art'", category: "Franelas", price: 22.00, image: "img/franelas-oversize.jpg", description: "Franela oversize de algodón premium con diseño exclusivo de lazo y estampado dálmata.", sizes: ["Única", "M", "L"], colors: ["Blanco Puro", "Negro"] },
+            { id: 4, name: "Cárdigan Manga Corta Botones Dorados", category: "Cardigans", price: 32.00, image: "img/cardigan-manga-corta.jpg", description: "Cárdigan corto tejido con ribetes contrastantes y botones dorados de lujo.", sizes: ["Única", "S", "M"], colors: ["Beige / Negro", "Negro / Blanco"] },
+            { id: 5, name: "Chaleco Tejido Clásico Rayas", category: "Chalecos", price: 26.00, image: "img/chalecos-tejidos.jpg", description: "Chaleco de punto fino con patrón de rayas verticales y doble botonadura.", sizes: ["Única", "S", "M"], colors: ["Beige / Negro", "Arena"] },
+            { id: 6, name: "Camisa Apolo Rayas Vino Tinto", category: "Apolo", price: 29.00, image: "img/apolo-rayas-vino.jpg", description: "Camisa polo tejida con cuello en contraste vino tinto.", sizes: ["Única", "S", "M"], colors: ["Vino / Blanco", "Negro / Blanco"] },
+            { id: 7, name: "Camisa Tejida Botones Ébano", category: "Camisas Tejidas", price: 27.00, image: "img/camisa-tejida-botones.jpg", description: "Camisa de punto texturizado con microperforaciones y botones carey.", sizes: ["Única", "S", "M"], colors: ["Beige Cálido", "Marfil"] },
+            { id: 8, name: "Franela Básica Logo Polo Soft", category: "Franelas", price: 20.00, image: "img/camisas-apolo-basicas.jpg", description: "Franela de algodón ultra suave con bordado distintivo.", sizes: ["Única", "S", "M"], colors: ["Marrón Taupe", "Negro"] }
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('reydi_cart')) || [];
+        let currentFilter = 'todos';
+        let currentSelectedProduct = null;
+        let selectedSize = '';
+        let selectedColor = '';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts(products);
+            updateCartUI();
+        });
+
+        function filterCategory(cat, btn) {
+            currentFilter = cat;
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('catalog-title').innerText = cat === 'todos' ? 'Catálogo Destacado' : `Colección ${cat}`;
+            handleSearch(document.getElementById('search-input').value);
+        }
+
+        function handleSearch(query) {
+            let filtered = products;
+            if (currentFilter !== 'todos') filtered = filtered.filter(p => p.category === currentFilter);
+            if (query.trim() !== '') filtered = filtered.filter(p => p.name.toLowerCase().includes(query.toLowerCase()));
+            renderProducts(filtered);
+            document.getElementById('product-count').innerText = filtered.length;
+        }
+
+        function renderProducts(items) {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+            if(items.length === 0) {
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">No se encontraron prendas.</div>`;
+                return;
+            }
+            items.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "glass-card product-card";
+                card.innerHTML = `
+                    <div class="product-img-wrapper">
+                        <img src="${p.image}" alt="${p.name}">
+                        <span class="category-tag">${p.category}</span>
+                        <div class="quick-view-overlay">
+                            <button class="btn-quick-view" onclick="openQuickView(${p.id})">Vista Rápida</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">${p.name}</div>
+                        <div class="product-desc">${p.description}</div>
+                        <div class="product-footer">
+                            <span class="product-price">$${p.price.toFixed(2)}</span>
+                            <button class="btn-add" onclick="openQuickView(${p.id})">+ Añadir</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function openQuickView(id) {
+            currentSelectedProduct = products.find(p => p.id === id);
+            if(!currentSelectedProduct) return;
+
+            document.getElementById('qv-img').src = currentSelectedProduct.image;
+            document.getElementById('qv-category').innerText = currentSelectedProduct.category;
+            document.getElementById('qv-title').innerText = currentSelectedProduct.name;
+            document.getElementById('qv-price').innerText = `$${currentSelectedProduct.price.toFixed(2)}`;
+            document.getElementById('qv-desc').innerText = currentSelectedProduct.description;
+
+            const sizesCont = document.getElementById('qv-sizes');
+            sizesCont.innerHTML = '';
+            selectedSize = currentSelectedProduct.sizes[0];
+            currentSelectedProduct.sizes.forEach((s, i) => {
+                const btn = document.createElement('button');
+                btn.className = `opt-btn ${i === 0 ? 'selected' : ''}`;
+                btn.innerText = s;
+                btn.onclick = () => {
+                    sizesCont.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                    selectedSize = s;
+                };
+                sizesCont.appendChild(btn);
+            });
+
+            const colorsCont = document.getElementById('qv-colors');
+            colorsCont.innerHTML = '';
+            selectedColor = currentSelectedProduct.colors[0];
+            currentSelectedProduct.colors.forEach((c, i) => {
+                const btn = document.createElement('button');
+                btn.className = `opt-btn ${i === 0 ? 'selected' : ''}`;
+                btn.innerText = c;
+                btn.onclick = () => {
+                    colorsCont.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                    selectedColor = c;
+                };
+                colorsCont.appendChild(btn);
+            });
+
+            document.getElementById('qv-add-btn').onclick = () => {
+                addToCart(currentSelectedProduct, selectedSize, selectedColor);
+                closeQuickView();
+            };
+
+            document.getElementById('quick-view-modal').style.display = 'flex';
+        }
+
+        function closeQuickView() {
+            document.getElementById('quick-view-modal').style.display = 'none';
+        }
+
+        function addToCart(p, size, color) {
+            const index = cart.findIndex(item => item.id === p.id && item.size === size && item.color === color);
+            if (index > -1) {
+                cart[index].qty += 1;
+            } else {
+                cart.push({ id: p.id, name: p.name, price: p.price, image: p.image, size, color, qty: 1 });
+            }
+            saveCart();
+            updateCartUI();
+            showToast(`¡${p.name} añadido a la bolsa!`);
+        }
+
+        function saveCart() {
+            localStorage.setItem('reydi_cart', JSON.stringify(cart));
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-counter').innerText = cart.reduce((s, i) => s + i.qty, 0);
+            const container = document.getElementById('cart-items');
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 20px; font-size: 12px;">Tu bolsa está vacía.</div>`;
+                document.getElementById('cart-subtotal').innerText = '$0.00';
+                document.getElementById('cart-total').innerText = '$0.00';
+                return;
+            }
+
+            let subtotal = 0;
+            cart.forEach((item, idx) => {
+                subtotal += item.price * item.qty;
+                const div = document.createElement('div');
+                div.style = "display: flex; gap: 10px; background: #12141a; padding: 10px; border-radius: 10px; border: 1px solid #272a35; align-items: center;";
+                div.innerHTML = `
+                    <img src="${item.image}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
+                    <div style="flex: 1;">
+                        <div style="font-size: 12px; font-weight: bold; color: #fff;">${item.name}</div>
+                        <div style="font-size: 10px; color: var(--text-muted);">${item.size} | ${item.color}</div>
+                        <div style="font-size: 11px; color: var(--champagne); font-weight: bold;">$${(item.price * item.qty).toFixed(2)}</div>
+                    </div>
+                    <button onclick="removeItem(${idx})" style="background: none; border: none; color: #ff5555; cursor: pointer;">✕</button>
+                `;
+                container.appendChild(div);
+            });
+
+            document.getElementById('cart-subtotal').innerText = `$${subtotal.toFixed(2)}`;
+            updateCartTotals();
+        }
+
+        function removeItem(idx) {
+            cart.splice(idx, 1);
+            saveCart();
+            updateCartUI();
+        }
+
+        function updateCartTotals() {
+            let subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+            const shipVal = document.getElementById('shipping-method').value;
+            let cost = 3.00;
+            if(shipVal === 'mrw') cost = 5.00;
+            if(shipVal === 'zoom' || shipVal === 'tealca') cost = 6.00;
+            if(shipVal === 'pickup' || cart.length === 0) cost = 0.00;
+
+            document.getElementById('cart-shipping-cost').innerText = `$${cost.toFixed(2)}`;
+            document.getElementById('cart-total').innerText = `$${(subtotal + cost).toFixed(2)}`;
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById('cart-modal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) return alert('La bolsa está vacía');
+            const payMethod = document.querySelector('input[name="payment_method"]:checked').value;
+            const shipMethod = document.getElementById('shipping-method').selectedOptions[0].text;
+            let sub = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+            let total = document.getElementById('cart-total').innerText;
+
+            let msg = `✨ *NUEVO PEDIDO - REYDI FASHION* ✨\n\n`;
+            cart.forEach(i => {
+                msg += `• *${i.name}* (${i.size}, ${i.color}) x${i.qty} = $${(i.price * i.qty).toFixed(2)}\n`;
+            });
+            msg += `\n📦 *Envío:* ${shipMethod}\n💳 *Pago:* ${payMethod}\n💎 *TOTAL:* *${total}*`;
+
+            window.open(`https://wa.me/584126747350?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
