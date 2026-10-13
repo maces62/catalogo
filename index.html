@@ -1,1030 +1,266 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reydi Fashion Boutique | Catálogo Exclusivo</title>
-    <style>
-        /* RESET & CSS VARIABLES */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        :root {
-            --bg-dark: #0a0b0e;
-            --card-bg: rgba(18, 20, 26, 0.85);
-            --border-gold: rgba(212, 175, 55, 0.25);
-            --champagne: #d4af37;
-            --champagne-light: #f3e5ab;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --bg-input: #12141a;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.5;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* GLASSMORPHISM & BRUTALISM DARK */
-        .glass-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border-gold);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .glass-card:hover {
-            border-color: rgba(212, 175, 55, 0.5);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.15);
-        }
-
-        /* MARQUEE ANIMATION */
-        .marquee-wrapper {
-            background: linear-gradient(90deg, #12141a, #1a1d26, #12141a);
-            border-bottom: 1px solid var(--border-gold);
-            color: var(--champagne);
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            padding: 8px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            z-index: 30;
-        }
-
-        .marquee-content {
-            display: inline-flex;
-            gap: 30px;
-            animation: marquee 22s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* HEADER & NAV */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 40;
-            background: rgba(10, 11, 14, 0.9);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-gold);
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-        }
-
-        .brand-logo {
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: 22px;
-            font-weight: bold;
-            letter-spacing: 1.5px;
-            color: #ffffff;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .brand-badge {
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid var(--border-gold);
-            color: var(--champagne);
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-
-        .search-box {
-            position: relative;
-            flex: 1;
-            max-width: 380px;
-        }
-
-        .search-box input {
-            width: 100%;
-            background: var(--bg-input);
-            border: 1px solid #272a35;
-            color: var(--text-main);
-            padding: 8px 14px 8px 36px;
-            border-radius: 20px;
-            font-size: 13px;
-            outline: none;
-            transition: border 0.3s;
-        }
-
-        .search-box input:focus {
-            border-color: var(--champagne);
-        }
-
-        .search-box svg {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 14px;
-            height: 14px;
-            fill: var(--text-muted);
-        }
-
-        .btn-cart {
-            background: #12141a;
-            border: 1px solid var(--border-gold);
-            color: #fff;
-            padding: 7px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .btn-cart:hover {
-            border-color: var(--champagne);
-            background: #1a1d26;
-        }
-
-        .cart-badge {
-            background: var(--champagne);
-            color: #000;
-            font-size: 10px;
-            font-weight: bold;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            padding: 35px 20px 20px 20px;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-tag {
-            color: var(--champagne);
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .hero h1 {
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: 32px;
-            line-height: 1.2;
-            margin-bottom: 12px;
-            color: #ffffff;
-        }
-
-        .hero h1 span {
-            color: var(--champagne);
-            font-style: italic;
-            font-weight: 300;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 13px;
-            max-width: 540px;
-            margin: 0 auto 25px auto;
-        }
-
-        /* CATEGORIES (SCROLL HORIZONTAL) */
-        .categories-scroll {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding: 5px 0 12px 0;
-            justify-content: flex-start;
-            scrollbar-width: none;
-        }
-
-        .categories-scroll::-webkit-scrollbar {
-            display: none;
-        }
-
-        .cat-btn {
-            white-space: nowrap;
-            background: #12141a;
-            border: 1px solid #272a35;
-            color: var(--text-muted);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .cat-btn.active {
-            background: var(--champagne);
-            color: #000;
-            border-color: var(--champagne);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-        }
-
-        /* PRODUCT GRID */
-        .catalog-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .catalog-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .catalog-header h2 {
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: 22px;
-            color: #fff;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden;
-        }
-
-        .product-img-wrapper {
-            position: relative;
-            aspect-ratio: 1/1;
-            background: #12141a;
-            overflow: hidden;
-        }
-
-        .product-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .product-card:hover .product-img-wrapper img {
-            transform: scale(1.06);
-        }
-
-        .category-tag {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(10, 11, 14, 0.85);
-            color: var(--champagne);
-            border: 1px solid var(--border-gold);
-            font-size: 9px;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 3px 8px;
-            border-radius: 12px;
-        }
-
-        .quick-view-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .product-card:hover .quick-view-overlay {
-            opacity: 1;
-        }
-
-        .btn-quick-view {
-            background: var(--champagne);
-            color: #000;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: bold;
-            cursor: pointer;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-        }
-
-        .product-card:hover .btn-quick-view {
-            transform: translateY(0);
-        }
-
-        .product-info {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .product-title {
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: 15px;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        .product-desc {
-            font-size: 11px;
-            color: var(--text-muted);
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .product-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 5px;
-            padding-top: 8px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .product-price {
-            font-size: 16px;
-            font-weight: bold;
-            color: var(--champagne);
-        }
-
-        .btn-add {
-            background: #1a1d26;
-            border: 1px solid #272a35;
-            color: #fff;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-add:hover {
-            background: var(--champagne);
-            color: #000;
-            border-color: var(--champagne);
-        }
-
-        /* FAQ ACCORDION */
-        .faq-section {
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .faq-item {
-            margin-bottom: 12px;
-            overflow: hidden;
-        }
-
-        .faq-btn {
-            width: 100%;
-            padding: 14px 18px;
-            background: transparent;
-            border: none;
-            color: #fff;
-            text-align: left;
-            font-size: 13px;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .faq-content {
-            padding: 0 18px 14px 18px;
-            font-size: 12px;
-            color: var(--text-muted);
-            display: none;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 5px;
-            padding-top: 10px;
-        }
-
-        /* MODALS */
-        .modal-backdrop {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
-            z-index: 50;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-card {
-            background: #12141a;
-            border: 1px solid var(--border-gold);
-            border-radius: 20px;
-            max-width: 600px;
-            width: 100%;
-            padding: 24px;
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #1a1d26;
-            border: 1px solid #272a35;
-            color: #fff;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .variant-group {
-            margin-bottom: 15px;
-        }
-
-        .variant-group label {
-            display: block;
-            font-size: 10px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-            margin-bottom: 6px;
-        }
-
-        .variant-options {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .opt-btn {
-            background: #12141a;
-            border: 1px solid #272a35;
-            color: #fff;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 11px;
-            cursor: pointer;
-        }
-
-        .opt-btn.selected {
-            background: var(--champagne);
-            color: #000;
-            border-color: var(--champagne);
-            font-weight: bold;
-        }
-
-        /* TOAST NOTIFICATION */
-        .toast {
-            position: fixed;
-            top: 70px;
-            right: 20px;
-            z-index: 60;
-            background: #12141a;
-            border: 1px solid var(--champagne);
-            color: #fff;
-            padding: 12px 18px;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transform: translateX(150%);
-            transition: transform 0.3s ease;
-        }
-
-        .toast.show {
-            transform: translateX(0);
-        }
-
-        /* FLOATING ACTION BUTTONS */
-        .floating-btns {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 40;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .fab {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-            transition: transform 0.3s;
-        }
-
-        .fab:hover {
-            transform: scale(1.1);
-        }
-
-        .fab-ws { background: #25D366; }
-        .fab-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-
-        /* RESPONSIVE */
-        @media (max-width: 640px) {
-            .search-box-desktop { display: none; }
-            .hero h1 { font-size: 24px; }
-            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .product-info { padding: 10px; }
-            .product-title { font-size: 13px; }
-            .product-price { font-size: 14px; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#962fbf">
+  <meta name="description" content="Descubre la colección de Reydi Fashion Boutique. Explora prendas, elige talla y color, y prepara tu pedido por WhatsApp.">
+  <title>Reydi Fashion Boutique | Estilo que te representa</title>
+  <style>
+    :root{color-scheme:dark;--bg:#17131c;--panel:#211b27;--panel-2:#2b2232;--text:#fff8fc;--muted:#c3b5c9;--ig-yellow:#feda75;--ig-orange:#fa7e1e;--ig-pink:#d62976;--ig-purple:#962fbf;--ig-blue:#4f5bd5;--ig-gradient:linear-gradient(115deg,var(--ig-yellow) 0%,var(--ig-orange) 27%,var(--ig-pink) 53%,var(--ig-purple) 76%,var(--ig-blue) 100%);--gold:var(--ig-pink);--gold-light:#f7b8d6;--line:rgba(214,41,118,.28);--danger:#ffb4c7;--green:#218c5a;--radius:18px;--shadow:0 18px 60px rgba(0,0,0,.32)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}body.modal-open{overflow:hidden}button,input,select{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}a{color:inherit}img{display:block;max-width:100%}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold-light);outline-offset:3px}.wrap{width:min(1160px,calc(100% - 40px));margin-inline:auto}.announcement{padding:8px 16px;text-align:center;background:#30291e;color:var(--gold-light);font-size:.75rem;letter-spacing:.09em;text-transform:uppercase}.site-header{position:sticky;top:0;z-index:20;background:rgba(23,21,18,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.header-inner{min-height:76px;display:flex;align-items:center;gap:24px}.brand{display:inline-flex;flex-direction:column;text-decoration:none;line-height:1.1;flex-shrink:0}.brand-name{font-family:Georgia,"Times New Roman",serif;font-size:1.55rem;letter-spacing:.12em}.brand-sub{font-size:.62rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-top:5px}.search{position:relative;max-width:430px;flex:1;margin-left:auto}.search input{width:100%;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:11px 16px 11px 42px;color:var(--text)}.search-icon{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--muted)}.header-actions{display:flex;gap:10px;align-items:center}.btn{border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--text);padding:10px 16px;font-weight:650;transition:background .2s,border-color .2s,transform .2s}.btn:hover{border-color:var(--gold);background:rgba(216,184,121,.08)}.btn-primary{background:var(--gold);color:#21190d;border-color:var(--gold)}.btn-primary:hover{background:var(--gold-light);color:#21190d}.cart-count{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:5px;padding:0 5px;border-radius:50px;background:var(--gold);color:#21190d;font-size:.75rem}.mobile-search{display:none;padding:0 0 14px}.hero{padding:76px 0 54px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-170px;top:-170px;background:radial-gradient(circle,rgba(216,184,121,.13),transparent 68%);pointer-events:none}.eyebrow{color:var(--gold);font-size:.74rem;font-weight:750;letter-spacing:.2em;text-transform:uppercase}.hero h1{max-width:820px;margin:15px 0 18px;font:clamp(2.7rem,7vw,5.5rem)/.98 Georgia,"Times New Roman",serif;letter-spacing:-.045em}.hero h1 em{color:var(--gold);font-weight:400}.hero p{max-width:590px;color:var(--muted);font-size:1.05rem;margin:0 0 28px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.hero-note{margin-top:30px;display:flex;gap:22px;flex-wrap:wrap;color:var(--muted);font-size:.8rem}.hero-note span:before{content:"✦";color:var(--gold);margin-right:8px}.catalog{padding:20px 0 82px}.section-top{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:22px}.section-top h2,.faq h2{font:clamp(1.8rem,4vw,2.7rem)/1.1 Georgia,"Times New Roman",serif;margin:7px 0 0}.result-count{color:var(--muted);font-size:.85rem}.categories{display:flex;gap:9px;overflow:auto;padding:3px 2px 16px;margin-bottom:14px;scrollbar-width:thin}.category-btn{white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:9px 15px;background:transparent;color:var(--muted);font-size:.85rem}.category-btn[aria-pressed="true"],.category-btn:hover{color:#20190f;background:var(--gold);border-color:var(--gold)}.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.product-card{min-width:0;overflow:hidden;background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);transition:transform .2s,border-color .2s}.product-card:hover{transform:translateY(-4px);border-color:var(--line)}.product-media{position:relative;aspect-ratio:4/5;background:linear-gradient(145deg,#383126,#211e19);overflow:hidden}.product-media img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.product-card:hover .product-media img{transform:scale(1.035)}.image-fallback{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:16px;color:#d6c6a7;background:radial-gradient(ellipse at 50% 35%,#534630,#29241d 65%);font:1.2rem Georgia,serif;letter-spacing:.1em}.image-fallback small{display:block;font: .68rem/1.5 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#b8aa8c;margin-top:7px}.product-media img:not([src]),.product-media img[src=""]{display:none}.product-tag{position:absolute;left:12px;top:12px;border:1px solid rgba(240,217,165,.4);background:rgba(23,21,18,.82);backdrop-filter:blur(8px);color:var(--gold-light);border-radius:999px;padding:5px 9px;font-size:.65rem;text-transform:uppercase;letter-spacing:.09em}.product-info{padding:15px}.product-category{color:var(--gold);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em}.product-title{font:1.08rem/1.25 Georgia,"Times New Roman",serif;margin:6px 0 7px;min-height:2.7em}.product-description{color:var(--muted);font-size:.8rem;line-height:1.5;min-height:3.6em}.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:16px}.price{font-weight:750;font-size:1.08rem;color:var(--gold-light);white-space:nowrap}.add-btn{border:1px solid var(--gold);border-radius:999px;padding:8px 11px;color:var(--gold-light);background:transparent;font-size:.78rem;font-weight:700}.add-btn:hover{background:var(--gold);color:#21190d}.empty-state{grid-column:1/-1;text-align:center;padding:55px 20px;border:1px dashed var(--line);border-radius:var(--radius);color:var(--muted)}.faq{padding:68px 0;border-top:1px solid var(--line);background:linear-gradient(180deg,transparent,rgba(216,184,121,.035))}.faq-intro{color:var(--muted);max-width:550px;margin:12px 0 25px}.faq-list{max-width:800px}.faq-item{border-top:1px solid var(--line)}.faq-question{display:flex;width:100%;justify-content:space-between;gap:16px;text-align:left;padding:19px 0;border:0;background:transparent;color:var(--text);font-weight:650}.faq-question span:last-child{color:var(--gold)}.faq-answer{color:var(--muted);padding:0 28px 20px 0;font-size:.92rem}.site-footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:16px;flex-wrap:wrap}.footer-links a{color:var(--gold-light);text-decoration:none}.floating-whatsapp{position:fixed;right:20px;bottom:20px;z-index:15;display:flex;align-items:center;gap:9px;background:#218c5a;color:#fff;text-decoration:none;padding:13px 17px;border-radius:999px;box-shadow:var(--shadow);font-size:.86rem;font-weight:750}.floating-whatsapp:hover{background:#27a368}.toast{position:fixed;left:50%;bottom:22px;z-index:60;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#f4ead5;color:#241d12;border-radius:12px;padding:12px 18px;box-shadow:var(--shadow);font-size:.9rem;transition:opacity .2s,transform .2s;max-width:calc(100% - 32px)}.toast.show{opacity:1;transform:translate(-50%,0)}.modal-backdrop{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.72);backdrop-filter:blur(7px)}.modal-backdrop.open{display:flex}.modal{width:min(820px,100%);max-height:min(90vh,900px);overflow:auto;background:#201d18;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);position:relative;padding:26px}.close-btn{position:absolute;right:15px;top:15px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#302a20;color:var(--text);font-size:1.2rem;z-index:2}.quick-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}.quick-image{aspect-ratio:4/5;position:relative;border-radius:14px;overflow:hidden;background:#302a20}.quick-image img{position:relative;width:100%;height:100%;object-fit:cover}.quick-info{padding:12px 18px 4px 0}.quick-info h3{font:clamp(1.5rem,4vw,2.2rem)/1.1 Georgia,serif;margin:8px 0}.quick-info p{color:var(--muted);font-size:.9rem}.variant-group{margin:19px 0}.variant-label{display:block;font-size:.83rem;font-weight:700;margin-bottom:9px}.variant-options{display:flex;gap:8px;flex-wrap:wrap}.variant-btn{border:1px solid var(--line);background:transparent;color:var(--text);padding:8px 12px;border-radius:9px;font-size:.83rem}.variant-btn[aria-pressed="true"]{border-color:var(--gold);background:rgba(216,184,121,.13);color:var(--gold-light)}.full{width:100%;margin-top:8px}.cart-modal{width:min(640px,100%)}.cart-modal h2{font:2rem Georgia,serif;margin:2px 45px 20px 0}.cart-items{display:grid;gap:10px}.cart-row{display:grid;grid-template-columns:66px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px;background:#29251f;border:1px solid rgba(255,255,255,.06);border-radius:13px}.cart-thumb{width:66px;height:78px;position:relative;overflow:hidden;border-radius:8px;background:#403728}.cart-thumb img{width:100%;height:100%;object-fit:cover}.cart-item-title{font-weight:700;font-size:.9rem}.cart-meta{color:var(--muted);font-size:.76rem;margin:3px 0}.cart-line-price{color:var(--gold-light);font-weight:750;font-size:.86rem}.quantity-controls{display:flex;align-items:center;gap:8px;margin-top:7px}.quantity-controls button,.remove-btn{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:7px;min-width:27px;height:27px}.remove-btn{color:var(--danger);border:0}.cart-empty{text-align:center;color:var(--muted);padding:25px 10px}.checkout-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.field{display:grid;gap:6px}.field label{font-size:.78rem;color:var(--muted)}.field input,.field select{width:100%;min-width:0;background:#15130f;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:11px 12px}.field option{background:#201d18}.summary{margin-top:20px;padding:16px;border-radius:13px;background:#171512;border:1px solid var(--line)}.summary-line{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:.88rem;margin:6px 0}.summary-total{border-top:1px solid var(--line);padding-top:12px;margin-top:12px;color:var(--text);font-size:1.05rem;font-weight:800}.notice{color:var(--muted);font-size:.75rem;margin:12px 0 0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:950px){.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.header-inner{gap:15px}.brand-name{font-size:1.3rem}}
+    @media(max-width:700px){.wrap{width:min(100% - 28px,560px)}.header-inner{min-height:68px;gap:12px}.search-box-desktop{display:none}.mobile-search{display:block}.header-actions{margin-left:auto}.cart-button{padding:9px 12px}.hero{padding:52px 0 36px}.hero h1{font-size:clamp(2.65rem,12vw,4.2rem)}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.product-info{padding:11px}.product-title{font-size:.98rem;min-height:2.5em}.product-description{font-size:.76rem;min-height:4.4em}.product-bottom{align-items:flex-start;flex-direction:column}.add-btn{width:100%;padding:9px}.section-top{align-items:flex-start;flex-direction:column}.quick-grid{grid-template-columns:1fr;gap:16px}.quick-image{max-height:42vh;aspect-ratio:4/3}.quick-info{padding:0}.modal{padding:20px}.checkout-fields{grid-template-columns:1fr}.floating-whatsapp{right:12px;bottom:12px;padding:12px 14px}.floating-whatsapp .whatsapp-label{display:none}}
+    @media(max-width:370px){.product-grid{grid-template-columns:1fr}.product-media{aspect-ratio:5/4}.product-bottom{flex-direction:row;align-items:center}.add-btn{width:auto}.brand-name{font-size:1.15rem}.brand-sub{font-size:.55rem}.cart-button .cart-word{display:none}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+    /* Identidad visual inspirada en el degradado oficial de Instagram */
+    .announcement{background:linear-gradient(100deg,rgba(250,126,30,.18),rgba(214,41,118,.2),rgba(150,47,191,.2),rgba(79,91,213,.18));border-bottom:1px solid rgba(214,41,118,.24);color:#ffe0ed}
+    .brand-name span{background:var(--ig-gradient);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+    .brand-sub,.eyebrow,.product-category{color:var(--ig-pink)}
+    .btn-primary{background:var(--ig-gradient);background-size:180% 180%;color:#fff;border-color:transparent;text-shadow:0 1px 2px rgba(40,10,35,.25);box-shadow:0 7px 24px rgba(214,41,118,.18)}
+    .btn-primary:hover{background:var(--ig-gradient);background-size:180% 180%;filter:saturate(1.12) brightness(1.06);color:#fff;border-color:transparent}
+    .cart-count,.category-btn[aria-pressed="truae"],.category-btn:hover{background:var(--ig-gradient);border-color:transparent;color:#fff}
+    .hero h1 em{background:var(--ig-gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero:before{background:radial-gradient(circle,rgba(214,41,118,.18),rgba(150,47,191,.1) 38%,transparent 70%)}
+    .hero-note span:before{background:var(--ig-gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .product-media{background:linear-gradient(145deg,#4a2949,#211b27)}
+    .image-fallback{color:#ffe0ed;background:radial-gradient(ellipse at 25% 25%,rgba(250,126,30,.34),transparent 45%),radial-gradient(ellipse at 70% 45%,rgba(214,41,118,.34),transparent 48%),linear-gradient(145deg,#35213e,#211b27)}
+    .image-fallback small{color:#d9b5d8}
+    .product-tag{border-color:rgba(247,184,214,.48);color:#ffd9ea}
+    .price,.faq-question span:last-child{color:#f7b8d6}
+    .add-btn{border-color:var(--ig-pink);color:#ffd5e7}
+    .add-btn:hover{background:var(--ig-gradient);border-color:transparent;color:#fff}
+    .variant-btn[aria-pressed="true"]{border-color:var(--ig-pink);background:linear-gradient(120deg,rgba(250,126,30,.15),rgba(214,41,118,.18),rgba(150,47,191,.18));color:#ffd5e7}
+    .footer-links a#instagram-link{font-weight:750;background:var(--ig-gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+    button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline-color:var(--ig-yellow)}
+
+    /* Footer editorial: identidad de marca, enlaces útiles y contacto claro */
+    .site-footer{position:relative;isolation:isolate;overflow:hidden;padding:0;color:var(--muted);font-size:.9rem;background:linear-gradient(145deg,#17131c 0%,#211725 54%,#17131c 100%);border-top:1px solid rgba(214,41,118,.35)}
+    .site-footer:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--ig-gradient);z-index:1}
+    .footer-glow{position:absolute;z-index:-1;right:-120px;top:-190px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(150,47,191,.15),rgba(214,41,118,.07) 36%,transparent 70%);pointer-events:none}
+    .footer-main{display:grid;grid-template-columns:minmax(250px,1.5fr) minmax(130px,.7fr) minmax(240px,1fr);gap:clamp(28px,6vw,78px);padding:54px 0 42px}
+    .footer-brand{width:max-content;text-decoration:none}
+    .footer-brand .brand-name{font-size:2rem;letter-spacing:.15em}
+    .footer-brand .brand-dot{background:var(--ig-gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .footer-brand .brand-sub{color:#e5a6e6;letter-spacing:.28em}
+    .footer-tagline{margin:19px 0 22px;color:#e0d5e5;font:1.05rem/1.65 Georgia,"Times New Roman",serif}
+    .footer-instagram{display:inline-flex;align-items:center;gap:11px;min-width:230px;padding:10px 13px;border:1px solid transparent;border-radius:15px;background:linear-gradient(#211725,#211725) padding-box,var(--ig-gradient) border-box;text-decoration:none;transition:transform .2s,background-color .2s}
+    .footer-instagram:hover{transform:translateY(-2px);background:linear-gradient(#2b1c30,#2b1c30) padding-box,var(--ig-gradient) border-box}
+    .instagram-mark{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border-radius:12px;color:#fff;background:var(--ig-gradient);box-shadow:0 5px 18px rgba(214,41,118,.2)}
+    .instagram-mark svg{width:23px;height:23px}
+    .footer-instagram small,.footer-instagram strong{display:block}
+    .footer-instagram small{font-size:.68rem;color:#c7b9ce;line-height:1.35}
+    .footer-instagram strong{margin-top:2px;color:var(--text);font-size:.95rem;letter-spacing:.02em}
+    .footer-arrow{margin-left:auto;color:#f6c5e1;font-size:1.15rem}
+    .footer-column{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding-top:5px}
+    .footer-column h2{margin:0 0 8px;color:var(--text);font-size:.78rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+    .footer-column>a:not(.footer-contact-link){color:#c7b9ce;text-decoration:none;transition:color .2s,transform .2s}
+    .footer-column>a:not(.footer-contact-link):hover{color:#fff;transform:translateX(3px)}
+    .footer-contact-column p{max-width:290px;margin:0 0 4px;color:#c7b9ce;line-height:1.7}
+    .footer-contact-link{display:inline-flex;align-items:center;gap:9px;padding:11px 15px;border:1px solid rgba(214,41,118,.55);border-radius:999px;background:rgba(214,41,118,.1);color:#fff;text-decoration:none;font-weight:750;transition:background .2s,border-color .2s,transform .2s}
+    .footer-contact-link:hover{background:rgba(214,41,118,.2);border-color:#d62976;transform:translateY(-1px)}
+    .footer-contact-link span{color:#f4a7d0;font-size:1rem}
+    .footer-note{display:flex;align-items:center;gap:8px;color:#a99aaf;font-size:.75rem}
+    .footer-status-dot{width:7px;height:7px;border-radius:50%;background:#69d6a0;box-shadow:0 0 0 4px rgba(105,214,160,.1)}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:18px 0 22px;border-top:1px solid rgba(255,255,255,.09);color:#a99aaf;font-size:.76rem}
+    .footer-bottom strong{color:#ded1e3;font-weight:650}
+    .back-to-top{display:inline-flex;align-items:center;gap:8px;color:#e9b7d8;text-decoration:none;white-space:nowrap}
+    .back-to-top:hover{color:#fff}
+    .back-to-top span{display:grid;place-items:center;width:25px;height:25px;border:1px solid rgba(214,41,118,.4);border-radius:50%}
+    @media(max-width:760px){.footer-main{grid-template-columns:1fr 1fr;gap:34px 24px;padding:42px 0 32px}.footer-brand-column{grid-column:1/-1}.footer-contact-column{grid-column:1/-1}.footer-tagline{margin:14px 0 18px}}
+    @media(max-width:460px){.footer-main{grid-template-columns:1fr;gap:28px}.footer-brand-column,.footer-contact-column{grid-column:auto}.footer-bottom{align-items:flex-start;flex-direction:column;gap:12px}.footer-instagram{width:100%;max-width:330px}.site-footer .wrap{width:min(100% - 32px,1160px)}}
+  </style>
 </head>
 <body>
-
-    <!-- 1. MARQUEE ANUNCIOS -->
-    <div class="marquee-wrapper">
-        <div class="marquee-content">
-            <span>✨ ENVIOS A NIVEL NACIONAL</span>
-            <span>🚚 ENTREGAS INMEDIATAS EN BARINAS</span>
-            <span>💳 PAGO MÓVIL Y DIVISAS</span>
-            <span>💎 ALTA COSTURA & TENDENCIAS COREANAS</span>
-            <span>✨ ENVIOS A NIVEL NACIONAL</span>
-            <span>🚚 ENTREGAS INMEDIATAS EN BARINAS</span>
-            <span>💳 PAGO MÓVIL Y DIVISAS</span>
-            <span>💎 ALTA COSTURA & TENDENCIAS COREANAS</span>
-        </div>
+  <div class="announcement">Moda seleccionada · Atención por WhatsApp · Envíos sujetos a confirmación</div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#inicio" aria-label="Reydi Fashion Boutique, inicio"><span class="brand-name">REYDI<span style="color:var(--gold)">.</span></span><span class="brand-sub">Fashion Boutique</span></a>
+      <div class="search search-box-desktop"><span class="search-icon" aria-hidden="true">⌕</span><label class="sr-only" for="search-desktop">Buscar prendas</label><input id="search-desktop" type="search" placeholder="Buscar prendas, colores, estilos…" autocomplete="off"></div>
+      <div class="header-actions"><button class="btn cart-button" id="open-cart" type="button" aria-haspopup="dialog" aria-controls="cart-modal">👜 <span class="cart-word">Mi bolsa</span> <span id="cart-count" class="cart-count" aria-label="Productos en la bolsa">0</span></button></div>
     </div>
-
-    <!-- 2. NOTIFICACIÓN TOAST -->
-    <div id="toast" class="toast">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#d4af37"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-        <div>
-            <div style="font-size: 10px; color: var(--champagne); font-weight: bold; text-transform: uppercase;">Reydi Fashion</div>
-            <div id="toast-msg" style="font-size: 12px;">¡Producto añadido a la bolsa!</div>
+    <div class="wrap mobile-search"><div class="search"><span class="search-icon" aria-hidden="true">⌕</span><label class="sr-only" for="search-mobile">Buscar prendas</label><input id="search-mobile" type="search" placeholder="Buscar prendas, colores, estilos…" autocomplete="off"></div></div>
+  </header>
+  <main id="inicio">
+    <section class="hero"><div class="wrap"><span class="eyebrow">Vestir bien, sentirte tú</span><h1>Detalles que hablan.<br><em>Estilo que permanece.</em></h1><p>Explora una selección de prendas con texturas, tonos y siluetas pensadas para acompañarte. Elige tus favoritos y prepara tu pedido con atención personalizada.</p><div class="hero-actions"><a class="btn btn-primary" href="#catalogo">Explorar colección <span aria-hidden="true">↘</span></a><a class="btn" href="#preguntas">Cómo comprar</a></div><div class="hero-note"><span>Selección cuidada</span><span>Asesoría personalizada</span><span>Pedido por WhatsApp</span></div></div></section>
+    <section class="catalog wrap" id="catalogo" aria-labelledby="catalog-title"><div class="section-top"><div><span class="eyebrow">Encuentra tu próximo favorito</span><h2 id="catalog-title">La colección</h2></div><span id="product-count" class="result-count" aria-live="polite">8 prendas</span></div><nav id="categories" class="categories" aria-label="Filtrar por categoría"></nav><div id="products-grid" class="product-grid"></div></section>
+    <section class="faq" id="preguntas"><div class="wrap"><span class="eyebrow">Estamos para ayudarte</span><h2>Antes de hacer tu pedido</h2><p class="faq-intro">Consulta los detalles de compra. La disponibilidad, los costos de envío y los pagos se confirman personalmente antes de cerrar el pedido.</p><div class="faq-list">
+      <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><span>¿Cómo puedo comprar?</span><span aria-hidden="true">＋</span></button><div class="faq-answer" hidden>Explora el catálogo, selecciona talla y color, añade las prendas a tu bolsa y envía el resumen por WhatsApp. La tienda confirmará disponibilidad y total final contigo.</div></div>
+      <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><span>¿Qué métodos de pago aceptan?</span><span aria-hidden="true">＋</span></button><div class="faq-answer" hidden>Consulta los métodos de pago disponibles al contactar a Reydi Fashion Boutique. Confirma los datos de pago directamente con la tienda antes de transferir.</div></div>
+      <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><span>¿Cómo funcionan los envíos?</span><span aria-hidden="true">＋</span></button><div class="faq-answer" hidden>Los métodos y costos mostrados en la bolsa son estimados de referencia. El costo final, la cobertura y el tiempo de entrega deben confirmarse según tu destino.</div></div>
+      <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><span>¿Puedo elegir talla y color?</span><span aria-hidden="true">＋</span></button><div class="faq-answer" hidden>Sí. Abre la vista de una prenda, selecciona las opciones disponibles y añádela a la bolsa. La selección queda incluida en el mensaje de WhatsApp.</div></div>
+    </div></div></section>
+  </main>
+  <footer class="site-footer" id="contacto">
+    <div class="footer-glow" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="footer-main">
+        <div class="footer-brand-column">
+          <a class="brand footer-brand" href="#inicio" aria-label="Reydi Fashion Boutique, volver al inicio">
+            <span class="brand-name">REYDI<span class="brand-dot">.</span></span>
+            <span class="brand-sub">Fashion Boutique</span>
+          </a>
+          <p class="footer-tagline">Tu estilo, tu esencia.<br>Prendas para destacar siendo tú.</p>
+          <a class="footer-instagram" id="instagram-link" href="https://www.instagram.com/reydi.ven/" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram de Reydi Fashion Boutique, @reydi.ven">
+            <span class="instagram-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3.1" y="3.1" width="17.8" height="17.8" rx="5.2" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.8"/><circle cx="17.8" cy="6.5" r="1.15" fill="currentColor"/></svg></span>
+            <span><small>Síguenos en Instagram</small><strong>@reydi.ven</strong></span><span class="footer-arrow" aria-hidden="true">↗</span>
+          </a>
         </div>
+        <nav class="footer-column" aria-label="Explorar la tienda">
+          <h2>Explora</h2>
+          <a href="#inicio">Inicio</a>
+          <a href="#catalogo">Catálogo</a>
+          <a href="#preguntas">Preguntas frecuentes</a>
+        </nav>
+        <div class="footer-column footer-contact-column">
+          <h2>¿Te ayudamos?</h2>
+          <p>Escríbenos para consultar disponibilidad, tallas, colores y envíos.</p>
+          <a class="footer-contact-link" id="whatsapp-footer" href="https://wa.me/584126747350" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Hablar por WhatsApp</a>
+          <span class="footer-note"><span class="footer-status-dot" aria-hidden="true"></span> Atención personalizada</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> <strong>Reydi Fashion Boutique.</strong> Hecho para expresar tu estilo.</span>
+        <a href="#inicio" class="back-to-top">Volver arriba <span aria-hidden="true">↑</span></a>
+      </div>
     </div>
+  </footer>
+  <a class="floating-whatsapp" id="whatsapp-float" href="https://wa.me/584126747350" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Reydi Fashion Boutique por WhatsApp"><span aria-hidden="true">◉</span><span class="whatsapp-label">¿Te ayudamos?</span></a>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-    <!-- 3. HEADER NAV -->
-    <header>
-        <a href="#" class="brand-logo">
-            REYDI<span style="color:var(--champagne)">.</span>
-            <span class="brand-badge">Boutique</span>
-        </a>
+  <div id="quick-modal" class="modal-backdrop" role="presentation"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="quick-title" aria-describedby="quick-description"><button class="close-btn" type="button" data-close="quick-modal" aria-label="Cerrar vista del producto">×</button><div class="quick-grid"><div class="quick-image"><div class="image-fallback" aria-hidden="true">REYDI<small>Fashion Boutique</small></div><img id="quick-img" alt="" hidden></div><div class="quick-info"><span id="quick-category" class="product-category"></span><h3 id="quick-title"></h3><div id="quick-price" class="price"></div><p id="quick-description"></p><div class="variant-group"><span class="variant-label" id="size-label">Selecciona una talla</span><div id="quick-sizes" class="variant-options" role="group" aria-labelledby="size-label"></div></div><div class="variant-group"><span class="variant-label" id="color-label">Selecciona un color</span><div id="quick-colors" class="variant-options" role="group" aria-labelledby="color-label"></div></div><button id="quick-add" class="btn btn-primary full" type="button">Añadir a mi bolsa</button></div></div></section></div>
+  <div id="cart-modal" class="modal-backdrop" role="presentation"><section class="modal cart-modal" role="dialog" aria-modal="true" aria-labelledby="cart-title"><button class="close-btn" type="button" data-close="cart-modal" aria-label="Cerrar bolsa">×</button><h2 id="cart-title">Tu bolsa</h2><div id="cart-items" class="cart-items"></div><div id="checkout-area"><div class="checkout-fields"><div class="field"><label for="customer-name">Tu nombre (opcional)</label><input id="customer-name" maxlength="80" autocomplete="name" placeholder="¿Cómo te llamas?"></div><div class="field"><label for="shipping-method">Método de entrega</label><select id="shipping-method"><option value="delivery">Delivery local (estimado $3)</option><option value="mrw">MRW (estimado $5)</option><option value="zoom">Zoom (estimado $6)</option><option value="tealca">Tealca (estimado $6)</option><option value="pickup">Retiro / coordinar ($0 estimado)</option></select></div><div class="field"><label for="delivery-location">Ciudad / zona (opcional)</label><input id="delivery-location" maxlength="120" autocomplete="shipping locality" placeholder="Ciudad o zona de entrega"></div><div class="field"><label for="payment-method">Forma de pago a coordinar</label><select id="payment-method"><option value="Por confirmar">Por confirmar</option><option value="Pago móvil">Pago móvil</option><option value="Divisas en efectivo">Divisas en efectivo</option><option value="Zelle">Zelle</option><option value="Transferencia">Transferencia</option></select></div></div><div class="summary"><div class="summary-line"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div><div class="summary-line"><span>Envío estimado</span><strong id="shipping-cost">$0.00</strong></div><div class="summary-line summary-total"><span>Total estimado</span><strong id="total">$0.00</strong></div></div><p class="notice">El pedido se enviará para revisión por WhatsApp. No se procesa ningún pago en esta página. La tienda confirmará precios, inventario y envío antes de cerrar la compra.</p><button id="checkout-button" class="btn btn-primary full" type="button">Enviar pedido por WhatsApp ↗</button></div></section></div>
 
-        <div class="search-box search-box-desktop">
-            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-            <input type="text" id="search-input" placeholder="Buscar prendas, chalecos, polos..." oninput="handleSearch(this.value)">
-        </div>
+  <script>
+    'use strict';
+    // CONFIGURACIÓN: actualiza aquí el WhatsApp y las redes oficiales de la boutique.
+    const CONFIG = {
+      whatsappNumber: '584126747350', // Formato internacional, solo números.
+      instagramUrl: 'https://www.instagram.com/reydi.ven/', // Instagram oficial: @reydi.ven.
+      currency: 'USD',
+      locale: 'en-US',
+      storageKey: 'reydi_cart_v2',
+      shippingEstimates: { delivery: 3, mrw: 5, zoom: 6, tealca: 6, pickup: 0 }
+    };
+    // Catálogo base adaptado del HTML compartido. Precios/stock se confirman manualmente.
+    const PRODUCTS = [
+      {id:1,name:'Camisa Tejida Gris con Rayas',category:'Camisas tejidas',price:28,image:'assets/products/camisa-tejida-gris.jpg',description:'Camisa tejida en tonos gris y celeste con diseño de rayas sutiles.',sizes:['Única','S','M'],colors:['Gris / Celeste','Beige']},
+      {id:2,name:'Conjunto Camisa Apolo & Chaleco',category:'Camisas Apolo',price:35,image:'assets/products/camisas-apolo-tejidas.jpg',description:'Conjunto de camisa polo tejida en tono nude con botones nacarados.',sizes:['Única','S','M','L'],colors:['Nude / Beige','Blanco']},
+      {id:3,name:'Franela Oversize Dalmatian Art',category:'Franelas',price:22,image:'assets/products/franelas-oversize.jpg',description:'Franela oversize con diseño de lazo y estampado dálmata.',sizes:['Única','M','L'],colors:['Blanco puro','Negro']},
+      {id:4,name:'Cárdigan Manga Corta Botones Dorados',category:'Cárdigans',price:32,image:'assets/products/cardigan-manga-corta.jpg',description:'Cárdigan corto tejido con ribetes contrastantes y botones dorados.',sizes:['Única','S','M'],colors:['Beige / Negro','Negro / Blanco']},
+      {id:5,name:'Chaleco Tejido Clásico Rayas',category:'Chalecos',price:26,image:'assets/products/chalecos-tejidos.jpg',description:'Chaleco de punto fino con patrón de rayas verticales y doble botonadura.',sizes:['Única','S','M'],colors:['Beige / Negro','Arena']},
+      {id:6,name:'Camisa Apolo Rayas Vino Tinto',category:'Camisas Apolo',price:29,image:'assets/products/apolo-rayas-vino.jpg',description:'Camisa polo tejida con cuello en contraste vino tinto.',sizes:['Única','S','M'],colors:['Vino / Blanco','Negro / Blanco']},
+      {id:7,name:'Camisa Tejida Botones Ébano',category:'Camisas tejidas',price:27,image:'assets/products/camisa-tejida-botones.jpg',description:'Camisa de punto texturizado con microperforaciones y botones carey.',sizes:['Única','S','M'],colors:['Beige cálido','Marfil']},
+      {id:8,name:'Franela Básica Logo Polo Soft',category:'Franelas',price:20,image:'assets/products/camisas-apolo-basicas.jpg',description:'Franela básica de tacto suave con bordado distintivo.',sizes:['Única','S','M'],colors:['Marrón taupe','Negro']}
+    ];
+    const $ = (selector, root=document) => root.querySelector(selector);
+    const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
+    const money = amount => new Intl.NumberFormat(CONFIG.locale,{style:'currency',currency:CONFIG.currency}).format(amount);
+    let activeCategory = 'Todos';
+    let activeProduct = null;
+    let selectedSize = '';
+    let selectedColor = '';
+    let lastFocusedElement = null;
+    let toastTimer = null;
+    let cart = loadCart();
 
-        <button class="btn-cart" onclick="toggleCartModal()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--champagne)"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.1 0 2 .89 2 2h-4c0-1.11.89-2 2-2zm6 16H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/></svg>
-            <span>Bolsa</span>
-            <span id="cart-counter" class="cart-badge">0</span>
-        </button>
-    </header>
-
-    <!-- 4. HERO & FILTROS -->
-    <section class="hero">
-        <span class="hero-tag">Colección Exclusiva 2026</span>
-        <h1>Elegancia Atemporal en <span>Soft Brutalism</span></h1>
-        <p>Descubre nuestra selección curada de alta costura femenina con texturas de punto finas, siluetas sofisticadas y detalles de lujo coreano.</p>
-
-        <!-- Scroll de Categorías -->
-        <div class="categories-scroll">
-            <button class="cat-btn active" onclick="filterCategory('todos', this)">✨ Todos</button>
-            <button class="cat-btn" onclick="filterCategory('Chalecos', this)">Chalecos Tejidos</button>
-            <button class="cat-btn" onclick="filterCategory('Franelas', this)">Franelas Oversize</button>
-            <button class="cat-btn" onclick="filterCategory('Apolo', this)">Camisas Apolo</button>
-            <button class="cat-btn" onclick="filterCategory('Cardigans', this)">Cárdigans</button>
-            <button class="cat-btn" onclick="filterCategory('Camisas Tejidas', this)">Camisas Tejidas</button>
-        </div>
-    </section>
-
-    <!-- 5. CATÁLOGO -->
-    <main class="catalog-container">
-        <div class="catalog-header">
-            <h2 id="catalog-title">Catálogo Destacado</h2>
-            <span style="font-size: 11px; color: var(--champagne); border: 1px solid var(--border-gold); padding: 4px 10px; border-radius: 8px;">
-                <span id="product-count">8</span> disponibles
-            </span>
-        </div>
-
-        <div id="products-grid" class="products-grid">
-            <!-- Inyectado dinámicamente -->
-        </div>
-    </main>
-
-    <!-- 6. FAQ ACORDEÓN -->
-    <section class="faq-section">
-        <div style="text-align: center; margin-bottom: 20px;">
-            <span style="color: var(--champagne); font-size: 10px; text-transform: uppercase; letter-spacing: 2px;">Resolvemos tus dudas</span>
-            <h2 style="font-family: Georgia, serif; font-size: 22px; color: #fff; margin-top: 4px;">Preguntas Frecuentes</h2>
-        </div>
-
-        <div class="glass-card faq-item">
-            <button class="faq-btn" onclick="toggleFaq(this)">
-                <span>¿Cuáles son los métodos de pago disponibles?</span>
-                <span>▼</span>
-            </button>
-            <div class="faq-content">
-                Aceptamos Pago Móvil (C.I 32.0410.68 | 0412-6747350), efectivo en divisas (USD/EUR) para entregas personales en Barinas, y transferencias Zelle.
-            </div>
-        </div>
-
-        <div class="glass-card faq-item">
-            <button class="faq-btn" onclick="toggleFaq(this)">
-                <span>¿Cómo funcionan los envíos y entregas?</span>
-                <span>▼</span>
-            </button>
-            <div class="faq-content">
-                Realizamos entregas inmediatas tipo Delivery en Barinas. Para envíos nacionales trabajamos con MRW, Zoom y Tealca.
-            </div>
-        </div>
-
-        <div class="glass-card faq-item">
-            <button class="faq-btn" onclick="toggleFaq(this)">
-                <span>¿Cómo elijo la talla o color correcto?</span>
-                <span>▼</span>
-            </button>
-            <div class="faq-content">
-                Cada prenda cuenta con un selector interactivo en la 'Vista Rápida' donde puedes seleccionar tu talla y variante preferida antes de añadir a tu pedido.
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. BOTONES FLOTANTES -->
-    <div class="floating-btns">
-        <a href="https://wa.me/584126747350?text=Hola%20Reydi%20Fashion,%20deseo%20asesoría" target="_blank" class="fab fab-ws" title="WhatsApp">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-        </a>
-        <a href="https://instagram.com" target="_blank" class="fab fab-ig" title="Instagram">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        </a>
-    </div>
-
-    <!-- 8. MODAL VISTA RÁPIDA -->
-    <div id="quick-view-modal" class="modal-backdrop">
-        <div class="modal-card">
-            <button class="close-btn" onclick="closeQuickView()">✕</button>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; align-items: center;">
-                <div style="aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; background: #000;">
-                    <img id="qv-img" src="" alt="" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div>
-                    <span id="qv-category" style="font-size: 10px; color: var(--champagne); font-weight: bold; text-transform: uppercase;"></span>
-                    <h3 id="qv-title" style="font-family: Georgia, serif; font-size: 20px; color: #fff; margin: 4px 0 8px 0;"></h3>
-                    <div id="qv-price" style="font-size: 18px; font-weight: bold; color: var(--champagne); margin-bottom: 12px;"></div>
-                    <p id="qv-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 15px;"></p>
-
-                    <div class="variant-group">
-                        <label>Selecciona Talla:</label>
-                        <div id="qv-sizes" class="variant-options"></div>
-                    </div>
-
-                    <div class="variant-group" style="margin-bottom: 20px;">
-                        <label>Selecciona Tono / Color:</label>
-                        <div id="qv-colors" class="variant-options"></div>
-                    </div>
-
-                    <button id="qv-add-btn" class="btn-add" style="width: 100%; padding: 12px; background: var(--champagne); color: #000; font-weight: bold; border: none; border-radius: 10px;">
-                        Añadir a la Bolsa
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 9. MODAL CARRITO -->
-    <div id="cart-modal" class="modal-backdrop" style="justify-content: flex-end; padding: 0;">
-        <div class="modal-card" style="border-radius: 20px 0 0 20px; height: 100vh; max-height: 100vh; max-width: 420px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 15px; margin-bottom: 15px;">
-                    <h3 style="font-family: Georgia, serif; color: #fff; font-size: 18px;">Tu Bolsa de Compras</h3>
-                    <button class="close-btn" style="position: static;" onclick="toggleCartModal()">✕</button>
-                </div>
-
-                <div id="cart-items" style="display: flex; flex-direction: column; gap: 12px; max-height: 45vh; overflow-y: auto;">
-                    <!-- Ítems dinámicos -->
-                </div>
-            </div>
-
-            <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 15px; display: flex; flex-direction: column; gap: 12px;">
-                <div>
-                    <label style="font-size: 10px; color: var(--text-muted); text-transform: uppercase;">Método de Envío:</label>
-                    <select id="shipping-method" onchange="updateCartTotals()" style="width: 100%; background: #12141a; border: 1px solid #272a35; color: #fff; padding: 8px; border-radius: 8px; font-size: 11px; margin-top: 4px;">
-                        <option value="delivery">Delivery Inmediato en Barinas ($3.00)</option>
-                        <option value="mrw">MRW - Envío Nacional ($5.00)</option>
-                        <option value="zoom">ZOOM - Envío Nacional ($6.00)</option>
-                        <option value="tealca">TEALCA - Envío Nacional ($6.00)</option>
-                        <option value="pickup">Retiro en Tienda Física (Gratis)</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label style="font-size: 10px; color: var(--text-muted); text-transform: uppercase;">Método de Pago:</label>
-                    <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px; font-size: 11px;">
-                        <label style="display: flex; align-items: center; gap: 8px; background: #12141a; padding: 6px 10px; border-radius: 8px; border: 1px solid #272a35;">
-                            <input type="radio" name="payment_method" value="Pago Móvil (C.I 32.0410.68 | 0412-6747350)" checked>
-                            <span>Pago Móvil (C.I 32.0410.68 | 0412-6747350)</span>
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 8px; background: #12141a; padding: 6px 10px; border-radius: 8px; border: 1px solid #272a35;">
-                            <input type="radio" name="payment_method" value="Efectivo / Divisas en entrega">
-                            <span>Efectivo / Divisas en entrega</span>
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 8px; background: #12141a; padding: 6px 10px; border-radius: 8px; border: 1px solid #272a35;">
-                            <input type="radio" name="payment_method" value="Zelle / Transferencia">
-                            <span>Zelle / Transferencia</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div style="font-size: 12px; display: flex; justify-content: space-between; color: var(--text-muted);">
-                    <span>Subtotal:</span>
-                    <span id="cart-subtotal">$0.00</span>
-                </div>
-                <div style="font-size: 12px; display: flex; justify-content: space-between; color: var(--text-muted);">
-                    <span>Envío:</span>
-                    <span id="cart-shipping-cost">$3.00</span>
-                </div>
-                <div style="font-size: 15px; font-weight: bold; display: flex; justify-content: space-between; color: #fff; border-top: 1px solid #272a35; padding-top: 8px;">
-                    <span>Total:</span>
-                    <span id="cart-total" style="color: var(--champagne);">$0.00</span>
-                </div>
-
-                <button onclick="checkoutWhatsApp()" style="width: 100%; padding: 12px; background: #25D366; color: #fff; font-weight: bold; border: none; border-radius: 10px; cursor: pointer; font-size: 13px;">
-                    Enviar Pedido por WhatsApp
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- SCRIPT TÉCNICO -->
-    <script>
-        const products = [
-            { id: 1, name: "Camisa Tejida Gris con Rayas", category: "Camisas Tejidas", price: 28.00, image: "img/camisa-tejida-gris.jpg", description: "Elegante camisa tejida en tonos gris y celeste con diseño de rayas sutiles.", sizes: ["Única", "S", "M"], colors: ["Gris / Celeste", "Beige"] },
-            { id: 2, name: "Conjunto Camisa Apolo & Chaleco", category: "Apolo", price: 35.00, image: "img/camisas-apolo-tejidas.jpg", description: "Conjunto exclusivo de camisa polo tejida en tono nude con botones nacarados.", sizes: ["Única", "S", "M", "L"], colors: ["Nude / Beige", "Blanco"] },
-            { id: 3, name: "Franela Oversize 'Dalmatian Art'", category: "Franelas", price: 22.00, image: "img/franelas-oversize.jpg", description: "Franela oversize de algodón premium con diseño exclusivo de lazo y estampado dálmata.", sizes: ["Única", "M", "L"], colors: ["Blanco Puro", "Negro"] },
-            { id: 4, name: "Cárdigan Manga Corta Botones Dorados", category: "Cardigans", price: 32.00, image: "img/cardigan-manga-corta.jpg", description: "Cárdigan corto tejido con ribetes contrastantes y botones dorados de lujo.", sizes: ["Única", "S", "M"], colors: ["Beige / Negro", "Negro / Blanco"] },
-            { id: 5, name: "Chaleco Tejido Clásico Rayas", category: "Chalecos", price: 26.00, image: "img/chalecos-tejidos.jpg", description: "Chaleco de punto fino con patrón de rayas verticales y doble botonadura.", sizes: ["Única", "S", "M"], colors: ["Beige / Negro", "Arena"] },
-            { id: 6, name: "Camisa Apolo Rayas Vino Tinto", category: "Apolo", price: 29.00, image: "img/apolo-rayas-vino.jpg", description: "Camisa polo tejida con cuello en contraste vino tinto.", sizes: ["Única", "S", "M"], colors: ["Vino / Blanco", "Negro / Blanco"] },
-            { id: 7, name: "Camisa Tejida Botones Ébano", category: "Camisas Tejidas", price: 27.00, image: "img/camisa-tejida-botones.jpg", description: "Camisa de punto texturizado con microperforaciones y botones carey.", sizes: ["Única", "S", "M"], colors: ["Beige Cálido", "Marfil"] },
-            { id: 8, name: "Franela Básica Logo Polo Soft", category: "Franelas", price: 20.00, image: "img/camisas-apolo-basicas.jpg", description: "Franela de algodón ultra suave con bordado distintivo.", sizes: ["Única", "S", "M"], colors: ["Marrón Taupe", "Negro"] }
-        ];
-
-        let cart = JSON.parse(localStorage.getItem('reydi_cart')) || [];
-        let currentFilter = 'todos';
-        let currentSelectedProduct = null;
-        let selectedSize = '';
-        let selectedColor = '';
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderProducts(products);
-            updateCartUI();
-        });
-
-        function filterCategory(cat, btn) {
-            currentFilter = cat;
-            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            document.getElementById('catalog-title').innerText = cat === 'todos' ? 'Catálogo Destacado' : `Colección ${cat}`;
-            handleSearch(document.getElementById('search-input').value);
-        }
-
-        function handleSearch(query) {
-            let filtered = products;
-            if (currentFilter !== 'todos') filtered = filtered.filter(p => p.category === currentFilter);
-            if (query.trim() !== '') filtered = filtered.filter(p => p.name.toLowerCase().includes(query.toLowerCase()));
-            renderProducts(filtered);
-            document.getElementById('product-count').innerText = filtered.length;
-        }
-
-        function renderProducts(items) {
-            const grid = document.getElementById('products-grid');
-            grid.innerHTML = '';
-            if(items.length === 0) {
-                grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">No se encontraron prendas.</div>`;
-                return;
-            }
-            items.forEach(p => {
-                const card = document.createElement('div');
-                card.className = "glass-card product-card";
-                card.innerHTML = `
-                    <div class="product-img-wrapper">
-                        <img src="${p.image}" alt="${p.name}">
-                        <span class="category-tag">${p.category}</span>
-                        <div class="quick-view-overlay">
-                            <button class="btn-quick-view" onclick="openQuickView(${p.id})">Vista Rápida</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">${p.name}</div>
-                        <div class="product-desc">${p.description}</div>
-                        <div class="product-footer">
-                            <span class="product-price">$${p.price.toFixed(2)}</span>
-                            <button class="btn-add" onclick="openQuickView(${p.id})">+ Añadir</button>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        function openQuickView(id) {
-            currentSelectedProduct = products.find(p => p.id === id);
-            if(!currentSelectedProduct) return;
-
-            document.getElementById('qv-img').src = currentSelectedProduct.image;
-            document.getElementById('qv-category').innerText = currentSelectedProduct.category;
-            document.getElementById('qv-title').innerText = currentSelectedProduct.name;
-            document.getElementById('qv-price').innerText = `$${currentSelectedProduct.price.toFixed(2)}`;
-            document.getElementById('qv-desc').innerText = currentSelectedProduct.description;
-
-            const sizesCont = document.getElementById('qv-sizes');
-            sizesCont.innerHTML = '';
-            selectedSize = currentSelectedProduct.sizes[0];
-            currentSelectedProduct.sizes.forEach((s, i) => {
-                const btn = document.createElement('button');
-                btn.className = `opt-btn ${i === 0 ? 'selected' : ''}`;
-                btn.innerText = s;
-                btn.onclick = () => {
-                    sizesCont.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
-                    btn.classList.add('selected');
-                    selectedSize = s;
-                };
-                sizesCont.appendChild(btn);
-            });
-
-            const colorsCont = document.getElementById('qv-colors');
-            colorsCont.innerHTML = '';
-            selectedColor = currentSelectedProduct.colors[0];
-            currentSelectedProduct.colors.forEach((c, i) => {
-                const btn = document.createElement('button');
-                btn.className = `opt-btn ${i === 0 ? 'selected' : ''}`;
-                btn.innerText = c;
-                btn.onclick = () => {
-                    colorsCont.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
-                    btn.classList.add('selected');
-                    selectedColor = c;
-                };
-                colorsCont.appendChild(btn);
-            });
-
-            document.getElementById('qv-add-btn').onclick = () => {
-                addToCart(currentSelectedProduct, selectedSize, selectedColor);
-                closeQuickView();
-            };
-
-            document.getElementById('quick-view-modal').style.display = 'flex';
-        }
-
-        function closeQuickView() {
-            document.getElementById('quick-view-modal').style.display = 'none';
-        }
-
-        function addToCart(p, size, color) {
-            const index = cart.findIndex(item => item.id === p.id && item.size === size && item.color === color);
-            if (index > -1) {
-                cart[index].qty += 1;
-            } else {
-                cart.push({ id: p.id, name: p.name, price: p.price, image: p.image, size, color, qty: 1 });
-            }
-            saveCart();
-            updateCartUI();
-            showToast(`¡${p.name} añadido a la bolsa!`);
-        }
-
-        function saveCart() {
-            localStorage.setItem('reydi_cart', JSON.stringify(cart));
-        }
-
-        function updateCartUI() {
-            document.getElementById('cart-counter').innerText = cart.reduce((s, i) => s + i.qty, 0);
-            const container = document.getElementById('cart-items');
-            container.innerHTML = '';
-
-            if (cart.length === 0) {
-                container.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 20px; font-size: 12px;">Tu bolsa está vacía.</div>`;
-                document.getElementById('cart-subtotal').innerText = '$0.00';
-                document.getElementById('cart-total').innerText = '$0.00';
-                return;
-            }
-
-            let subtotal = 0;
-            cart.forEach((item, idx) => {
-                subtotal += item.price * item.qty;
-                const div = document.createElement('div');
-                div.style = "display: flex; gap: 10px; background: #12141a; padding: 10px; border-radius: 10px; border: 1px solid #272a35; align-items: center;";
-                div.innerHTML = `
-                    <img src="${item.image}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
-                    <div style="flex: 1;">
-                        <div style="font-size: 12px; font-weight: bold; color: #fff;">${item.name}</div>
-                        <div style="font-size: 10px; color: var(--text-muted);">${item.size} | ${item.color}</div>
-                        <div style="font-size: 11px; color: var(--champagne); font-weight: bold;">$${(item.price * item.qty).toFixed(2)}</div>
-                    </div>
-                    <button onclick="removeItem(${idx})" style="background: none; border: none; color: #ff5555; cursor: pointer;">✕</button>
-                `;
-                container.appendChild(div);
-            });
-
-            document.getElementById('cart-subtotal').innerText = `$${subtotal.toFixed(2)}`;
-            updateCartTotals();
-        }
-
-        function removeItem(idx) {
-            cart.splice(idx, 1);
-            saveCart();
-            updateCartUI();
-        }
-
-        function updateCartTotals() {
-            let subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
-            const shipVal = document.getElementById('shipping-method').value;
-            let cost = 3.00;
-            if(shipVal === 'mrw') cost = 5.00;
-            if(shipVal === 'zoom' || shipVal === 'tealca') cost = 6.00;
-            if(shipVal === 'pickup' || cart.length === 0) cost = 0.00;
-
-            document.getElementById('cart-shipping-cost').innerText = `$${cost.toFixed(2)}`;
-            document.getElementById('cart-total').innerText = `$${(subtotal + cost).toFixed(2)}`;
-        }
-
-        function toggleCartModal() {
-            const modal = document.getElementById('cart-modal');
-            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toast-msg').innerText = msg;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3000);
-        }
-
-        function toggleFaq(btn) {
-            const content = btn.nextElementSibling;
-            content.style.display = content.style.display === 'block' ? 'none' : 'block';
-        }
-
-        function checkoutWhatsApp() {
-            if (cart.length === 0) return alert('La bolsa está vacía');
-            const payMethod = document.querySelector('input[name="payment_method"]:checked').value;
-            const shipMethod = document.getElementById('shipping-method').selectedOptions[0].text;
-            let sub = cart.reduce((s, i) => s + (i.price * i.qty), 0);
-            let total = document.getElementById('cart-total').innerText;
-
-            let msg = `✨ *NUEVO PEDIDO - REYDI FASHION* ✨\n\n`;
-            cart.forEach(i => {
-                msg += `• *${i.name}* (${i.size}, ${i.color}) x${i.qty} = $${(i.price * i.qty).toFixed(2)}\n`;
-            });
-            msg += `\n📦 *Envío:* ${shipMethod}\n💳 *Pago:* ${payMethod}\n💎 *TOTAL:* *${total}*`;
-
-            window.open(`https://wa.me/584126747350?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-    </script>
+    function loadCart(){
+      try {
+        const raw = JSON.parse(localStorage.getItem(CONFIG.storageKey) || '[]');
+        if (!Array.isArray(raw)) return [];
+        return raw.map(row => {
+          if (!row || !Number.isInteger(row.id) || !Number.isInteger(row.qty) || row.qty < 1 || row.qty > 99) return null;
+          const product = PRODUCTS.find(p => p.id === row.id);
+          if (!product || !product.sizes.includes(row.size) || !product.colors.includes(row.color)) return null;
+          return {id:product.id,size:row.size,color:row.color,qty:row.qty};
+        }).filter(Boolean);
+      } catch { return []; }
+    }
+    function saveCart(){ try { localStorage.setItem(CONFIG.storageKey,JSON.stringify(cart)); } catch { showToast('No se pudo guardar la bolsa en este navegador.'); } }
+    function getProduct(id){ return PRODUCTS.find(p => p.id === Number(id)); }
+    function escapeHtml(value){ return String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch])); }
+    function productImageMarkup(product, extraClass=''){
+      const label = escapeHtml(product.name);
+      return `<div class="image-fallback" aria-hidden="true">REYDI<small>Fashion Boutique</small></div><img class="${extraClass}" src="${escapeHtml(product.image)}" alt="${label}" loading="lazy" onerror="this.hidden=true" onload="this.hidden=false">`;
+    }
+    function renderCategories(){
+      const categories = ['Todos',...new Set(PRODUCTS.map(p=>p.category))];
+      $('#categories').innerHTML = categories.map(cat=>`<button type="button" class="category-btn" data-category="${escapeHtml(cat)}" aria-pressed="${cat===activeCategory}">${escapeHtml(cat)}</button>`).join('');
+    }
+    function renderProducts(){
+      const query = ($('#search-desktop').value || $('#search-mobile').value || '').trim().toLocaleLowerCase('es');
+      const filtered = PRODUCTS.filter(p=>(activeCategory==='Todos'||p.category===activeCategory)&&(!query||`${p.name} ${p.category} ${p.description} ${p.colors.join(' ')}`.toLocaleLowerCase('es').includes(query)));
+      $('#product-count').textContent = `${filtered.length} ${filtered.length===1?'prenda':'prendas'}`;
+      $('#products-grid').innerHTML = filtered.length ? filtered.map(p=>`<article class="product-card"><div class="product-media">${productImageMarkup(p)}<span class="product-tag">${escapeHtml(p.category)}</span></div><div class="product-info"><div class="product-category">REYDI · SELECCIÓN</div><h3 class="product-title">${escapeHtml(p.name)}</h3><p class="product-description">${escapeHtml(p.description)}</p><div class="product-bottom"><span class="price">${money(p.price)}</span><button type="button" class="add-btn" data-open-product="${p.id}" aria-label="Elegir opciones de ${escapeHtml(p.name)}">Ver opciones +</button></div></div></article>`).join('') : '<div class="empty-state"><strong>No encontramos prendas con esa búsqueda.</strong><p>Prueba con otro nombre, color o categoría.</p><button class="btn" type="button" id="clear-filters">Limpiar filtros</button></div>';
+    }
+    function openModal(id){
+      const modal = document.getElementById(id); if(!modal) return;
+      lastFocusedElement = document.activeElement; modal.classList.add('open'); document.body.classList.add('modal-open');
+      const focusable = $('button:not([disabled]),input:not([disabled]),select:not([disabled]),a[href]',modal); if(focusable) focusable.focus();
+    }
+    function closeModal(id){
+      const modal = document.getElementById(id); if(!modal) return;
+      modal.classList.remove('open'); if(!$('.modal-backdrop.open')) document.body.classList.remove('modal-open');
+      if(lastFocusedElement && typeof lastFocusedElement.focus==='function') lastFocusedElement.focus();
+    }
+    function renderVariantButtons(container, values, selected, callback){
+      container.innerHTML = values.map(value=>`<button type="button" class="variant-btn" data-variant="${escapeHtml(value)}" aria-pressed="${value===selected}">${escapeHtml(value)}</button>`).join('');
+      container.onclick = event=>{ const button=event.target.closest('[data-variant]'); if(!button) return; callback(button.dataset.variant); $$('.variant-btn',container).forEach(b=>b.setAttribute('aria-pressed',String(b===button))); };
+    }
+    function openQuickView(id){
+      activeProduct = getProduct(id); if(!activeProduct) return;
+      selectedSize=activeProduct.sizes[0]; selectedColor=activeProduct.colors[0];
+      $('#quick-category').textContent=activeProduct.category; $('#quick-title').textContent=activeProduct.name; $('#quick-price').textContent=money(activeProduct.price); $('#quick-description').textContent=activeProduct.description;
+      const img=$('#quick-img'); img.src=activeProduct.image; img.alt=activeProduct.name; img.hidden=false; img.onerror=()=>{img.hidden=true}; img.onload=()=>{img.hidden=false};
+      renderVariantButtons($('#quick-sizes'),activeProduct.sizes,selectedSize,value=>selectedSize=value);
+      renderVariantButtons($('#quick-colors'),activeProduct.colors,selectedColor,value=>selectedColor=value);
+      openModal('quick-modal');
+    }
+    function addToCart(product,size,color){
+      if(!product||!product.sizes.includes(size)||!product.colors.includes(color)) return;
+      const existing=cart.find(item=>item.id===product.id&&item.size===size&&item.color===color);
+      if(existing){ if(existing.qty>=99){showToast('Has alcanzado el máximo de 99 unidades por variante.');return;} existing.qty+=1; }
+      else cart.push({id:product.id,size,color,qty:1});
+      saveCart(); renderCart(); showToast('Prenda añadida a tu bolsa.');
+    }
+    function renderCart(){
+      const count=cart.reduce((sum,item)=>sum+item.qty,0); $('#cart-count').textContent=String(count);
+      const container=$('#cart-items');
+      if(!cart.length){container.innerHTML='<div class="cart-empty">Tu bolsa está vacía.<br>Explora la colección para añadir tus favoritos.</div>';$('#checkout-area').hidden=true;updateTotals();return;}
+      $('#checkout-area').hidden=false;
+      container.innerHTML=cart.map((item,index)=>{const p=getProduct(item.id);if(!p)return '';return `<article class="cart-row"><div class="cart-thumb">${productImageMarkup(p)}</div><div><div class="cart-item-title">${escapeHtml(p.name)}</div><div class="cart-meta">Talla: ${escapeHtml(item.size)} · Color: ${escapeHtml(item.color)}</div><div class="cart-line-price">${money(p.price*item.qty)}</div><div class="quantity-controls"><button type="button" data-qty="-1" data-index="${index}" aria-label="Quitar una unidad de ${escapeHtml(p.name)}">−</button><span aria-label="Cantidad">${item.qty}</span><button type="button" data-qty="1" data-index="${index}" aria-label="Añadir una unidad de ${escapeHtml(p.name)}" ${item.qty>=99?'disabled':''}>+</button></div></div><button type="button" class="remove-btn" data-remove="${index}" aria-label="Eliminar ${escapeHtml(p.name)} de la bolsa">Eliminar</button></article>`;}).join('');
+      updateTotals();
+    }
+    function updateTotals(){
+      const subtotal=cart.reduce((sum,item)=>{const p=getProduct(item.id);return sum+(p?p.price*item.qty:0)},0);
+      const shipping=cart.length?(CONFIG.shippingEstimates[$('#shipping-method').value]??0):0;
+      $('#subtotal').textContent=money(subtotal);$('#shipping-cost').textContent=money(shipping);$('#total').textContent=money(subtotal+shipping);
+    }
+    function showToast(message){const toast=$('#toast');toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2600);}
+    function checkoutWhatsApp(){
+      if(!cart.length){showToast('Añade al menos una prenda antes de continuar.');return;}
+      if(!/^\d{10,15}$/.test(CONFIG.whatsappNumber)){showToast('Configura el número de WhatsApp en el código.');return;}
+      const name=$('#customer-name').value.trim().slice(0,80);const location=$('#delivery-location').value.trim().slice(0,120);
+      const ship=$('#shipping-method');const pay=$('#payment-method');let subtotal=0;
+      const lines=cart.map(item=>{const p=getProduct(item.id);if(!p)return '';subtotal+=p.price*item.qty;return `• ${p.name} | Talla: ${item.size} | Color: ${item.color} | Cantidad: ${item.qty} | ${money(p.price*item.qty)}`;}).filter(Boolean);
+      const shipping=CONFIG.shippingEstimates[ship.value]??0;
+      const message=[`PEDIDO PARA REVISAR — REYDI FASHION BOUTIQUE`,'',name?`Cliente: ${name}`:null,location?`Zona/destino: ${location}`:null,...lines,'',`Entrega solicitada: ${ship.selectedOptions[0].textContent}`,`Costo de envío estimado: ${money(shipping)}`,`Forma de pago a coordinar: ${pay.value}`,`Subtotal estimado: ${money(subtotal)}`,`TOTAL ESTIMADO: ${money(subtotal+shipping)}`,'','Por favor, confirma disponibilidad, precio final, costo de envío y datos de pago antes de cerrar el pedido.'].filter(Boolean).join('\n');
+      const url=`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;window.open(url,'_blank','noopener,noreferrer');
+    }
+    renderCategories();renderProducts();renderCart();$('#year').textContent=String(new Date().getFullYear());
+    $('#instagram-link').href=CONFIG.instagramUrl;$('#whatsapp-footer').href=`https://wa.me/${CONFIG.whatsappNumber}`;$('#whatsapp-float').href=`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent('Hola, Reydi Fashion Boutique. Quiero información sobre el catálogo.')}`;
+    $('#categories').addEventListener('click',event=>{const button=event.target.closest('[data-category]');if(!button)return;activeCategory=button.dataset.category;$$('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));renderProducts();});
+    function syncSearch(value,source){const other=source===$('#search-desktop')?$('#search-mobile'):$('#search-desktop');if(other.value!==value)other.value=value;renderProducts();}
+    $('#search-desktop').addEventListener('input',event=>syncSearch(event.target.value,event.target));$('#search-mobile').addEventListener('input',event=>syncSearch(event.target.value,event.target));
+    $('#products-grid').addEventListener('click',event=>{const button=event.target.closest('[data-open-product]');if(button)openQuickView(button.dataset.openProduct);if(event.target.closest('#clear-filters')){activeCategory='Todos';$('#search-desktop').value='';$('#search-mobile').value='';$$('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.category==='Todos')));renderProducts();}});
+    $('#quick-add').addEventListener('click',()=>{if(activeProduct)addToCart(activeProduct,selectedSize,selectedColor);closeModal('quick-modal');});
+    $('#open-cart').addEventListener('click',()=>{renderCart();openModal('cart-modal');});
+    $$('.modal-backdrop').forEach(backdrop=>{backdrop.addEventListener('click',event=>{if(event.target===backdrop)closeModal(backdrop.id);});});
+    $$('[data-close]').forEach(button=>button.addEventListener('click',()=>closeModal(button.dataset.close)));
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'){$$('.modal-backdrop.open').forEach(modal=>closeModal(modal.id));}});
+    $('#cart-items').addEventListener('click',event=>{const qtyButton=event.target.closest('[data-qty]');const removeButton=event.target.closest('[data-remove]');if(qtyButton){const index=Number(qtyButton.dataset.index);if(!Number.isInteger(index)||!cart[index])return;cart[index].qty+=Number(qtyButton.dataset.qty);if(cart[index].qty<=0)cart.splice(index,1);else if(cart[index].qty>99)cart[index].qty=99;saveCart();renderCart();}if(removeButton){const index=Number(removeButton.dataset.remove);if(Number.isInteger(index)&&cart[index]){cart.splice(index,1);saveCart();renderCart();}}});
+    $('#shipping-method').addEventListener('change',updateTotals);$('#checkout-button').addEventListener('click',checkoutWhatsApp);
+    $$('.faq-question').forEach(button=>button.addEventListener('click',()=>{const answer=button.nextElementSibling;const expanded=button.getAttribute('aria-expanded')==='true';button.setAttribute('aria-expanded',String(!expanded));button.querySelector('span:last-child').textContent=expanded?'＋':'−';answer.hidden=expanded;}));
+  </script>
 </body>
 </html>
