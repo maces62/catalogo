@@ -19,7 +19,7 @@
     .brand-sub,.eyebrow,.product-category{color:var(--ig-pink)}
     .btn-primary{background:var(--ig-gradient);background-size:180% 180%;color:#fff;border-color:transparent;text-shadow:0 1px 2px rgba(40,10,35,.25);box-shadow:0 7px 24px rgba(214,41,118,.18)}
     .btn-primary:hover{background:var(--ig-gradient);background-size:180% 180%;filter:saturate(1.12) brightness(1.06);color:#fff;border-color:transparent}
-    .cart-count,.category-btn[aria-pressed="truae"],.category-btn:hover{background:var(--ig-gradient);border-color:transparent;color:#fff}
+    .cart-count,.category-btn[aria-pressed="true"],.category-btn:hover{background:var(--ig-gradient);border-color:transparent;color:#fff}
     .hero h1 em{background:var(--ig-gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
     .hero:before{background:radial-gradient(circle,rgba(214,41,118,.18),rgba(150,47,191,.1) 38%,transparent 70%)}
     .hero-note span:before{background:var(--ig-gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -144,14 +144,14 @@
     };
     // Catálogo base adaptado del HTML compartido. Precios/stock se confirman manualmente.
     const PRODUCTS = [
-      {id:1,name:'Camisa Tejida Gris con Rayas',category:'Camisas tejidas',price:28,image:'assets/products/camisa-tejida-gris.jpg',description:'Camisa tejida en tonos gris y celeste con diseño de rayas sutiles.',sizes:['Única','S','M'],colors:['Gris / Celeste','Beige']},
-      {id:2,name:'Conjunto Camisa Apolo & Chaleco',category:'Camisas Apolo',price:35,image:'assets/products/camisas-apolo-tejidas.jpg',description:'Conjunto de camisa polo tejida en tono nude con botones nacarados.',sizes:['Única','S','M','L'],colors:['Nude / Beige','Blanco']},
-      {id:3,name:'Franela Oversize Dalmatian Art',category:'Franelas',price:22,image:'assets/products/franelas-oversize.jpg',description:'Franela oversize con diseño de lazo y estampado dálmata.',sizes:['Única','M','L'],colors:['Blanco puro','Negro']},
-      {id:4,name:'Cárdigan Manga Corta Botones Dorados',category:'Cárdigans',price:32,image:'assets/products/cardigan-manga-corta.jpg',description:'Cárdigan corto tejido con ribetes contrastantes y botones dorados.',sizes:['Única','S','M'],colors:['Beige / Negro','Negro / Blanco']},
-      {id:5,name:'Chaleco Tejido Clásico Rayas',category:'Chalecos',price:26,image:'assets/products/chalecos-tejidos.jpg',description:'Chaleco de punto fino con patrón de rayas verticales y doble botonadura.',sizes:['Única','S','M'],colors:['Beige / Negro','Arena']},
-      {id:6,name:'Camisa Apolo Rayas Vino Tinto',category:'Camisas Apolo',price:29,image:'assets/products/apolo-rayas-vino.jpg',description:'Camisa polo tejida con cuello en contraste vino tinto.',sizes:['Única','S','M'],colors:['Vino / Blanco','Negro / Blanco']},
-      {id:7,name:'Camisa Tejida Botones Ébano',category:'Camisas tejidas',price:27,image:'assets/products/camisa-tejida-botones.jpg',description:'Camisa de punto texturizado con microperforaciones y botones carey.',sizes:['Única','S','M'],colors:['Beige cálido','Marfil']},
-      {id:8,name:'Franela Básica Logo Polo Soft',category:'Franelas',price:20,image:'assets/products/camisas-apolo-basicas.jpg',description:'Franela básica de tacto suave con bordado distintivo.',sizes:['Única','S','M'],colors:['Marrón taupe','Negro']}
+      {id:1,name:'Camisa Tejida Gris con Rayas',category:'Camisas tejidas',price:28,image:'img/camisa-tejida-gris.jpg',description:'Camisa tejida en tonos gris y celeste con diseño de rayas sutiles.',sizes:['Única','S','M'],colors:['Gris / Celeste','Beige']},
+      {id:2,name:'Conjunto Camisa Apolo & Chaleco',category:'Camisas Apolo',price:35,image:'img/camisas-apolo-tejidas.jpg',description:'Conjunto de camisa polo tejida en tono nude con botones nacarados.',sizes:['Única','S','M','L'],colors:['Nude / Beige','Blanco']},
+      {id:3,name:'Franela Oversize Dalmatian Art',category:'Franelas',price:22,image:'img/franelas-oversize.jpg',description:'Franela oversize con diseño de lazo y estampado dálmata.',sizes:['Única','M','L'],colors:['Blanco puro','Negro']},
+      {id:4,name:'Cárdigan Manga Corta Botones Dorados',category:'Cárdigans',price:32,image:'img/cardigan-manga-corta.jpg',description:'Cárdigan corto tejido con ribetes contrastantes y botones dorados.',sizes:['Única','S','M'],colors:['Beige / Negro','Negro / Blanco']},
+      {id:5,name:'Chaleco Tejido Clásico Rayas',category:'Chalecos',price:26,image:'img/chalecos-tejidos.jpg',description:'Chaleco de punto fino con patrón de rayas verticales y doble botonadura.',sizes:['Única','S','M'],colors:['Beige / Negro','Arena']},
+      {id:6,name:'Camisa Apolo Rayas Vino Tinto',category:'Camisas Apolo',price:29,image:'img/apolo-rayas-vino.jpg',description:'Camisa polo tejida con cuello en contraste vino tinto.',sizes:['Única','S','M'],colors:['Vino / Blanco','Negro / Blanco']},
+      {id:7,name:'Camisa Tejida Botones Ébano',category:'Camisas tejidas',price:27,image:'img/camisa-tejida-botones.jpg',description:'Camisa de punto texturizado con microperforaciones y botones carey.',sizes:['Única','S','M'],colors:['Beige cálido','Marfil']},
+      {id:8,name:'Franela Básica Logo Polo Soft',category:'Franelas',price:20,image:'img/camisas-apolo-basicas.jpg',description:'Franela básica de tacto suave con bordado distintivo.',sizes:['Única','S','M'],colors:['Marrón taupe','Negro']}
     ];
     const $ = (selector, root=document) => root.querySelector(selector);
     const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
