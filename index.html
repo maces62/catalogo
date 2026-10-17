@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#962fbf">
+  <meta name="theme-color" content="#6d214f">
   <meta name="description" content="Descubre la colección de Reydi Fashion Boutique. Explora prendas, elige talla y color, y prepara tu pedido por WhatsApp.">
   <title>Reydi Fashion Boutique | Estilo que te representa</title>
   <style>
@@ -69,10 +69,171 @@
     .back-to-top span{display:grid;place-items:center;width:25px;height:25px;border:1px solid rgba(214,41,118,.4);border-radius:50%}
     @media(max-width:760px){.footer-main{grid-template-columns:1fr 1fr;gap:34px 24px;padding:42px 0 32px}.footer-brand-column{grid-column:1/-1}.footer-contact-column{grid-column:1/-1}.footer-tagline{margin:14px 0 18px}}
     @media(max-width:460px){.footer-main{grid-template-columns:1fr;gap:28px}.footer-brand-column,.footer-contact-column{grid-column:auto}.footer-bottom{align-items:flex-start;flex-direction:column;gap:12px}.footer-instagram{width:100%;max-width:330px}.site-footer .wrap{width:min(100% - 32px,1160px)}}
+
+    /* Rediseño limpio: menos adornos, más espacio y precios fáciles de encontrar. */
+    :root{color-scheme:light;--bg:#fbf8fa;--panel:#ffffff;--panel-2:#f5edf5;--text:#28212b;--muted:#756b78;--gold:#c72d79;--gold-light:#a82067;--line:rgba(150,47,191,.18);--shadow:0 14px 40px rgba(50,24,55,.12);--radius:15px}
+    body{background:var(--bg);color:var(--text)}
+    .site-header{background:rgba(255,255,255,.94);border-bottom:1px solid #eee4ef}
+    .header-inner{min-height:70px;gap:18px}
+    .brand-name{font-size:1.42rem;letter-spacing:.09em}
+    .brand-sub{color:#a12a8b;letter-spacing:.2em}
+    .search input{background:#faf7fb;border-color:#e8dce9;color:var(--text)}
+    .btn{border-color:#e5d6e8;color:var(--text)}
+    .btn:hover{border-color:var(--gold);background:#fbedf5}
+    .btn-primary{background:var(--ig-gradient);color:white;border:0}
+    .btn-primary:hover{background:var(--ig-gradient);color:white;filter:saturate(1.08);transform:translateY(-1px)}
+    .cart-count{background:var(--ig-gradient);color:white}
+    .hero{padding:64px 0 38px;background:linear-gradient(120deg,#fff 0%,#fcf4fa 55%,#f5f0ff 100%)}
+    .hero:before{width:280px;height:280px;right:-150px;top:-150px;background:radial-gradient(circle,rgba(214,41,118,.10),transparent 70%)}
+    .eyebrow{color:#ad2d88;letter-spacing:.14em}
+    .hero h1{max-width:760px;font-size:clamp(2.5rem,6vw,4.7rem);line-height:1.02;letter-spacing:-.04em;margin:12px 0 15px}
+    .hero h1 em{background:var(--ig-gradient);background-clip:text;-webkit-background-clip:text;color:transparent}
+    .hero p{font-size:1rem;color:#6f6473;max-width:520px;margin-bottom:22px}
+    .catalog{padding-top:42px;padding-bottom:65px}
+    .section-top{margin-bottom:18px}
+    .section-top h2{font-size:clamp(1.8rem,4vw,2.45rem);color:#302433}
+    .categories{gap:8px;padding-bottom:12px;margin-bottom:10px}
+    .category-btn{border-color:#e5d8e8;background:#fff;color:#6d6070;padding:8px 13px}
+    .category-btn[aria-pressed="true"],.category-btn:hover{color:#fff;background:var(--ig-gradient);border-color:transparent}
+    .product-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+    .product-card{background:#fff;border:1px solid #eee5ef;border-radius:14px;box-shadow:0 5px 20px rgba(43,24,48,.035);transition:transform .18s,box-shadow .18s,border-color .18s}
+    .product-card:hover{transform:translateY(-3px);border-color:#e8c4df;box-shadow:0 12px 28px rgba(43,24,48,.09)}
+    .product-media{background:#f0e8f1;aspect-ratio:4/4.6}
+    .image-fallback{color:#6f3b6c;background:radial-gradient(ellipse at 50% 35%,#f8e7f3,#e9dfee 72%)}
+    .image-fallback small{color:#866d88}
+    .product-tag{background:rgba(255,255,255,.92);border:1px solid #eee0ef;color:#8d287e;backdrop-filter:blur(6px);font-size:.63rem}
+    .product-info{padding:14px}
+    .product-title{font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:.98rem;font-weight:650;line-height:1.35;min-height:2.65em;margin:0 0 6px;color:#302433}
+    .product-description{font-size:.79rem;line-height:1.45;min-height:2.3em;color:#7b707d}
+    .product-bottom{margin-top:13px;align-items:center}
+    .price{font-size:1.16rem;color:#9d236f;font-weight:800}
+    .add-btn{background:#fff;border-color:#e4c5df;color:#9b2677;padding:8px 10px}
+    .add-btn:hover{background:var(--ig-gradient);color:#fff;border-color:transparent}
+    .empty-state{border-color:#e5d4e8;color:#716675}
+    .site-footer{background:#fff;border-top:1px solid #eee4ef;color:#786e7b;padding:8px 0 0}
+    .footer-main{padding:34px 0 26px;gap:32px}
+    .footer-column h2{color:#332737}
+    .footer-column a{color:#77657b}
+    .footer-tagline{color:#776d7a}
+    .footer-instagram{background:#fcf6fb;border-color:#ead6e9}
+    .footer-instagram strong{color:#9d287b}
+    .footer-contact-link{background:var(--ig-gradient);color:white!important;border:0}
+    .footer-bottom{border-top:1px solid #eee4ef;color:#938797}
+    .footer-bottom strong{color:#5d4c61}
+    .back-to-top{color:#9d287b}
+    .back-to-top span{border-color:#e7cce4}
+    .floating-whatsapp{background:#218c5a;box-shadow:0 8px 28px rgba(26,103,67,.22)}
+    .modal{background:#fff;color:#302433;border-color:#ead9eb}
+    .close-btn{background:#fbf4fb;color:#302433;border-color:#ead9eb}
+    .quick-image{background:#f0e8f1}
+    .variant-btn{background:#fff;color:#5f5264;border-color:#e5d6e8}
+    .variant-btn[aria-pressed="true"]{background:#fbedf5;border-color:#c72d79;color:#a82067}
+    .cart-row{border-color:#eee4ef}
+    .cart-thumb{background:#f0e8f1}
+    .field input,.field select{background:#fff;color:#302433;border-color:#e5d6e8}
+    .summary{background:#fcf7fc;border-color:#eee1ef}
+    .notice{background:#fbf5fb;border-color:#ead9eb;color:#716675}
+    .toast{background:#302433;color:#fff}
+    @media(max-width:900px){.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:650px){.wrap{width:min(100% - 28px,1160px)}.header-inner{min-height:64px;gap:10px}.brand-name{font-size:1.22rem}.brand-sub{font-size:.56rem}.hero{padding:46px 0 30px}.hero h1{font-size:clamp(2.3rem,10vw,3.6rem)}.catalog{padding-top:32px}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.product-info{padding:11px}.product-title{font-size:.9rem;min-height:2.6em}.product-description{font-size:.75rem;min-height:2.9em}.product-bottom{align-items:flex-start;flex-direction:column;gap:9px}.add-btn{width:100%}.price{font-size:1.1rem}.floating-whatsapp{right:12px;bottom:12px;padding:12px 14px}.quick-grid{gap:15px}.modal{padding:20px}}
+    @media(max-width:390px){.cart-word{display:none}.search input{font-size:.85rem;padding-left:36px}.product-media{aspect-ratio:3/4}}
+
+
+    /* Paleta elegante Reydi: ciruela profunda, rosa empolvado y champagne */
+    :root{
+      color-scheme:light;
+      --bg:#fbf8f4;
+      --panel:#fffdfb;
+      --panel-2:#f5eee9;
+      --text:#30242d;
+      --muted:#796d76;
+      --ig-yellow:#e7d2ad;
+      --ig-orange:#cda17f;
+      --ig-pink:#a85d7b;
+      --ig-purple:#6d214f;
+      --ig-blue:#513047;
+      --ig-gradient:linear-gradient(115deg,#6d214f 0%,#985273 55%,#cda17f 100%);
+      --gold:#7a2d57;
+      --gold-light:#b47a91;
+      --line:rgba(109,33,79,.17);
+      --danger:#a33f59;
+      --green:#218c5a;
+      --radius:15px;
+      --shadow:0 14px 36px rgba(63,35,52,.10)
+    }
+    body{background:var(--bg);color:var(--text)}
+    .announcement{background:#f0e5e8;color:#6d214f;letter-spacing:.08em}
+    .site-header{background:rgba(255,253,251,.94);border-bottom:1px solid rgba(109,33,79,.13)}
+    .brand-name{color:#392633;letter-spacing:.14em}
+    .brand-name span{color:#a85d7b!important}
+    .brand-sub{color:#8d4a6d;letter-spacing:.22em}
+    .search input{background:#fffdfb;border-color:#e8dce0;color:var(--text)}
+    .search input::placeholder{color:#a2969e}
+    .btn{border-color:#e5d5dd;color:#4b3544}
+    .btn:hover{border-color:#a85d7b;background:#f8edf2}
+    .btn-primary{background:var(--ig-gradient);color:#fff;border:0;box-shadow:0 6px 18px rgba(109,33,79,.15)}
+    .btn-primary:hover{background:var(--ig-gradient);filter:brightness(1.07);color:#fff}
+    .cart-count{background:#6d214f;color:#fff}
+    .hero{background:linear-gradient(120deg,#fffdfb 0%,#f8eff1 58%,#f3ece7 100%)}
+    .hero:before{background:radial-gradient(circle,rgba(168,93,123,.13),rgba(205,161,127,.09) 42%,transparent 72%)}
+    .eyebrow{color:#8c3e64}
+    .hero h1 em{background:var(--ig-gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{color:#766873}
+    .hero-note{color:#796d76}
+    .hero-note span:before{background:var(--ig-gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .section-top h2{color:#382633}
+    .category-btn{border-color:#e6d9de;background:#fffdfb;color:#756571}
+    .category-btn[aria-pressed="true"],.category-btn:hover{color:#fff;background:var(--ig-gradient);border-color:transparent}
+    .product-card{background:#fffdfb;border:1px solid #eee3e6;box-shadow:0 5px 18px rgba(63,35,52,.035)}
+    .product-card:hover{border-color:#d7b4c3;box-shadow:0 12px 28px rgba(63,35,52,.09)}
+    .product-media{background:#f0e6e9}
+    .image-fallback{color:#6d214f;background:radial-gradient(ellipse at 50% 35%,#fff5f3,#eadce4 72%)}
+    .image-fallback small{color:#927687}
+    .product-tag{background:rgba(255,253,251,.94);border-color:#ead9df;color:#7a2d57}
+    .product-category{color:#96506f}
+    .product-title{color:#382633}
+    .product-description{color:#7b7078}
+    .price{color:#7a2d57}
+    .add-btn{background:#fffdfb;border-color:#d9bac8;color:#7a2d57}
+    .add-btn:hover{background:var(--ig-gradient);color:#fff;border-color:transparent}
+    .faq{border-top-color:#e9dce1;background:linear-gradient(180deg,transparent,rgba(168,93,123,.035))}
+    .faq-item{border-top-color:#e9dce1}
+    .faq-question{color:#382633}
+    .faq-question span:last-child{color:#8b4165}
+    .faq-answer{color:#796d76}
+    .site-footer{background:#352431;color:#e4d7df;border-top:1px solid #5c3c50}
+    .site-footer:before{background:var(--ig-gradient)}
+    .footer-brand .brand-name{color:#fff7f8}
+    .footer-brand .brand-sub{color:#d6a8bc}
+    .footer-tagline{color:#e7dbe1}
+    .footer-instagram{background:linear-gradient(#352431,#352431) padding-box,var(--ig-gradient) border-box}
+    .footer-instagram:hover{background:linear-gradient(#43303f,#43303f) padding-box,var(--ig-gradient) border-box}
+    .footer-instagram small{color:#cbb9c5}
+    .footer-instagram strong{color:#fff7f8}
+    .footer-arrow{color:#e4c6d2}
+    .footer-column h2{color:#fff7f8}
+    .footer-column>a:not(.footer-contact-link){color:#d5c4ce}
+    .footer-column>a:not(.footer-contact-link):hover{color:#fff}
+    .footer-contact-column p{color:#d5c4ce}
+    .footer-contact-link{background:var(--ig-gradient);border:0;color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.13);color:#bfaeba}
+    .footer-bottom strong{color:#f2e6ec}
+    .back-to-top{color:#e6c3d2}
+    .floating-whatsapp{background:#218c5a;box-shadow:0 8px 28px rgba(26,103,67,.20)}
+    .modal{background:#fffdfb;color:#30242d;border-color:#ead9e0}
+    .close-btn{background:#f8eff2;color:#382633;border-color:#e6d5dd}
+    .quick-image,.cart-thumb{background:#f0e6e9}
+    .quick-info h3{color:#382633}
+    .variant-btn{background:#fffdfb;color:#5f5260;border-color:#e6d8de}
+    .variant-btn[aria-pressed="true"]{background:#f8edf2;border-color:#a85d7b;color:#6d214f}
+    .cart-row{background:#fffafc;border-color:#eee3e7}
+    .field input,.field select{background:#fffdfb;color:#30242d;border-color:#e6d8de}
+    .summary{background:#faf2f5;border-color:#eadce2}
+    .notice{background:#f8eff2;border-color:#ead9e0;color:#796d76}
+    .toast{background:#352431;color:#fff7f8}
   </style>
 </head>
 <body>
-  <div class="announcement">Moda seleccionada · Atención por WhatsApp · Envíos sujetos a confirmación</div>
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#inicio" aria-label="Reydi Fashion Boutique, inicio"><span class="brand-name">REYDI<span style="color:var(--gold)">.</span></span><span class="brand-sub">Fashion Boutique</span></a>
@@ -82,14 +243,8 @@
     <div class="wrap mobile-search"><div class="search"><span class="search-icon" aria-hidden="true">⌕</span><label class="sr-only" for="search-mobile">Buscar prendas</label><input id="search-mobile" type="search" placeholder="Buscar prendas, colores, estilos…" autocomplete="off"></div></div>
   </header>
   <main id="inicio">
-    <section class="hero"><div class="wrap"><span class="eyebrow">Vestir bien, sentirte tú</span><h1>Detalles que hablan.<br><em>Estilo que permanece.</em></h1><p>Explora una selección de prendas con texturas, tonos y siluetas pensadas para acompañarte. Elige tus favoritos y prepara tu pedido con atención personalizada.</p><div class="hero-actions"><a class="btn btn-primary" href="#catalogo">Explorar colección <span aria-hidden="true">↘</span></a><a class="btn" href="#preguntas">Cómo comprar</a></div><div class="hero-note"><span>Selección cuidada</span><span>Asesoría personalizada</span><span>Pedido por WhatsApp</span></div></div></section>
+    <section class="hero"><div class="wrap"><span class="eyebrow">Vestir bien, sentirte tú</span><h1>Detalles que hablan.<br><em>Estilo que permanece.</em></h1><p>Explora una selección de prendas con texturas, tonos y siluetas pensadas para acompañarte. Elige tus favoritos y prepara tu pedido con atención personalizada.</p><div class="hero-actions"><a class="btn btn-primary" href="#catalogo">Explorar colección <span aria-hidden="true">↘</span></a><a class="btn" href="#contacto">Contactar</a></div></div></section>
     <section class="catalog wrap" id="catalogo" aria-labelledby="catalog-title"><div class="section-top"><div><span class="eyebrow">Encuentra tu próximo favorito</span><h2 id="catalog-title">La colección</h2></div><span id="product-count" class="result-count" aria-live="polite">8 prendas</span></div><nav id="categories" class="categories" aria-label="Filtrar por categoría"></nav><div id="products-grid" class="product-grid"></div></section>
-    <section class="faq" id="preguntas"><div class="wrap"><span class="eyebrow">Estamos para ayudarte</span><h2>Antes de hacer tu pedido</h2><p class="faq-intro">Consulta los detalles de compra. La disponibilidad, los costos de envío y los pagos se confirman personalmente antes de cerrar el pedido.</p><div class="faq-list">
-      <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><span>¿Cómo puedo comprar?</span><span aria-hidden="true">＋</span></button><div class="faq-answer" hidden>Explora el catálogo, selecciona talla y color, añade las prendas a tu bolsa y envía el resumen por WhatsApp. La tienda confirmará disponibilidad y total final contigo.</div></div>
-      <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><span>¿Qué métodos de pago aceptan?</span><span aria-hidden="true">＋</span></button><div class="faq-answer" hidden>Consulta los métodos de pago disponibles al contactar a Reydi Fashion Boutique. Confirma los datos de pago directamente con la tienda antes de transferir.</div></div>
-      <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><span>¿Cómo funcionan los envíos?</span><span aria-hidden="true">＋</span></button><div class="faq-answer" hidden>Los métodos y costos mostrados en la bolsa son estimados de referencia. El costo final, la cobertura y el tiempo de entrega deben confirmarse según tu destino.</div></div>
-      <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><span>¿Puedo elegir talla y color?</span><span aria-hidden="true">＋</span></button><div class="faq-answer" hidden>Sí. Abre la vista de una prenda, selecciona las opciones disponibles y añádela a la bolsa. La selección queda incluida en el mensaje de WhatsApp.</div></div>
-    </div></div></section>
   </main>
   <footer class="site-footer" id="contacto">
     <div class="footer-glow" aria-hidden="true"></div>
@@ -135,23 +290,22 @@
     'use strict';
     // CONFIGURACIÓN: actualiza aquí el WhatsApp y las redes oficiales de la boutique.
     const CONFIG = {
-      whatsappNumber: '584126747350', // Formato internacional, solo números.
+      whatsappNumber: '584140297809', // Número indicado: 04140297809, convertido a formato internacional.
       instagramUrl: 'https://www.instagram.com/reydi.ven/', // Instagram oficial: @reydi.ven.
       currency: 'USD',
       locale: 'en-US',
-      storageKey: 'reydi_cart_v2',
+      storageKey: 'reydi_cart_v3',
       shippingEstimates: { delivery: 3, mrw: 5, zoom: 6, tealca: 6, pickup: 0 }
     };
     // Catálogo base adaptado del HTML compartido. Precios/stock se confirman manualmente.
     const PRODUCTS = [
-      {id:1,name:'Camisa Tejida Gris con Rayas',category:'Camisas tejidas',price:28,image:'img/camisa-tejida-gris.jpg',description:'Camisa tejida en tonos gris y celeste con diseño de rayas sutiles.',sizes:['Única','S','M'],colors:['Gris / Celeste','Beige']},
-      {id:2,name:'Conjunto Camisa Apolo & Chaleco',category:'Camisas Apolo',price:35,image:'img/camisas-apolo-tejidas.jpg',description:'Conjunto de camisa polo tejida en tono nude con botones nacarados.',sizes:['Única','S','M','L'],colors:['Nude / Beige','Blanco']},
-      {id:3,name:'Franela Oversize Dalmatian Art',category:'Franelas',price:22,image:'img/franelas-oversize.jpg',description:'Franela oversize con diseño de lazo y estampado dálmata.',sizes:['Única','M','L'],colors:['Blanco puro','Negro']},
-      {id:4,name:'Cárdigan Manga Corta Botones Dorados',category:'Cárdigans',price:32,image:'img/cardigan-manga-corta.jpg',description:'Cárdigan corto tejido con ribetes contrastantes y botones dorados.',sizes:['Única','S','M'],colors:['Beige / Negro','Negro / Blanco']},
-      {id:5,name:'Chaleco Tejido Clásico Rayas',category:'Chalecos',price:26,image:'img/chalecos-tejidos.jpg',description:'Chaleco de punto fino con patrón de rayas verticales y doble botonadura.',sizes:['Única','S','M'],colors:['Beige / Negro','Arena']},
-      {id:6,name:'Camisa Apolo Rayas Vino Tinto',category:'Camisas Apolo',price:29,image:'img/apolo-rayas-vino.jpg',description:'Camisa polo tejida con cuello en contraste vino tinto.',sizes:['Única','S','M'],colors:['Vino / Blanco','Negro / Blanco']},
-      {id:7,name:'Camisa Tejida Botones Ébano',category:'Camisas tejidas',price:27,image:'img/camisa-tejida-botones.jpg',description:'Camisa de punto texturizado con microperforaciones y botones carey.',sizes:['Única','S','M'],colors:['Beige cálido','Marfil']},
-      {id:8,name:'Franela Básica Logo Polo Soft',category:'Franelas',price:20,image:'img/camisas-apolo-basicas.jpg',description:'Franela básica de tacto suave con bordado distintivo.',sizes:['Única','S','M'],colors:['Marrón taupe','Negro']}
+      {id:1,name:'Camisa Tejida Gris con Rayas',category:'Camisas tejidas',price:15,image:'img/camisa-tejida-gris.jpg',description:'Camisa tejida en tonos gris y celeste con diseño de rayas sutiles.',sizes:['Única','S','M'],colors:['Gris / Celeste','Beige']},
+      {id:2,name:'Camisa Apolo Tejida Nude',category:'Camisas Apolo',price:15,image:'img/camisas-apolo-tejidas.jpg',description:'Camisa Apolo tejida en tono nude con botones.',sizes:['Única','S','M','L'],colors:['Nude / Beige','Blanco']},
+      {id:3,name:'Camisa Oversize Dalmatian',category:'Camisas oversize',price:10,image:'img/franelas-oversize.jpg',description:'Camisa oversize con diseño estampado.',sizes:['Única','M','L'],colors:['Blanco','Negro']},
+      {id:6,name:'Camisa Apolo Rayas Vino',category:'Camisas Apolo',price:15,image:'img/apolo-rayas-vino.jpg',description:'Camisa Apolo tejida con cuello en contraste vino tinto.',sizes:['Única','S','M'],colors:['Vino / Blanco','Negro / Blanco']},
+      {id:7,name:'Camisa Tejida con Botones',category:'Camisas tejidas',price:15,image:'img/camisa-tejida-botones.jpg',description:'Camisa tejida texturizada con botones.',sizes:['Única','S','M'],colors:['Beige','Marfil']},
+      {id:8,name:'Camisa Aló Básica',category:'Camisas Aló',price:18,image:'img/camisas-apolo-basicas.jpg',description:'Camisa básica de tacto suave.',sizes:['Única','S','M'],colors:['Marrón taupe','Negro']},
+      {id:9,name:'Bermudas',category:'Bermudas',price:18,image:'img/bermudas.jpg',description:'Bermudas. Consulta colores y disponibilidad al confirmar tu pedido.',sizes:['S','M','L','XL'],colors:['Negro','Beige']}
     ];
     const $ = (selector, root=document) => root.querySelector(selector);
     const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
@@ -191,7 +345,7 @@
       const query = ($('#search-desktop').value || $('#search-mobile').value || '').trim().toLocaleLowerCase('es');
       const filtered = PRODUCTS.filter(p=>(activeCategory==='Todos'||p.category===activeCategory)&&(!query||`${p.name} ${p.category} ${p.description} ${p.colors.join(' ')}`.toLocaleLowerCase('es').includes(query)));
       $('#product-count').textContent = `${filtered.length} ${filtered.length===1?'prenda':'prendas'}`;
-      $('#products-grid').innerHTML = filtered.length ? filtered.map(p=>`<article class="product-card"><div class="product-media">${productImageMarkup(p)}<span class="product-tag">${escapeHtml(p.category)}</span></div><div class="product-info"><div class="product-category">REYDI · SELECCIÓN</div><h3 class="product-title">${escapeHtml(p.name)}</h3><p class="product-description">${escapeHtml(p.description)}</p><div class="product-bottom"><span class="price">${money(p.price)}</span><button type="button" class="add-btn" data-open-product="${p.id}" aria-label="Elegir opciones de ${escapeHtml(p.name)}">Ver opciones +</button></div></div></article>`).join('') : '<div class="empty-state"><strong>No encontramos prendas con esa búsqueda.</strong><p>Prueba con otro nombre, color o categoría.</p><button class="btn" type="button" id="clear-filters">Limpiar filtros</button></div>';
+      $('#products-grid').innerHTML = filtered.length ? filtered.map(p=>`<article class="product-card"><div class="product-media">${productImageMarkup(p)}<span class="product-tag">${escapeHtml(p.category)}</span></div><div class="product-info"><h3 class="product-title">${escapeHtml(p.name)}</h3><p class="product-description">${escapeHtml(p.description)}</p><div class="product-bottom"><span class="price">${money(p.price)}</span><button type="button" class="add-btn" data-open-product="${p.id}" aria-label="Elegir opciones de ${escapeHtml(p.name)}">Ver opciones +</button></div></div></article>`).join('') : '<div class="empty-state"><strong>No encontramos prendas con esa búsqueda.</strong><p>Prueba con otro nombre, color o categoría.</p><button class="btn" type="button" id="clear-filters">Limpiar filtros</button></div>';
     }
     function openModal(id){
       const modal = document.getElementById(id); if(!modal) return;
